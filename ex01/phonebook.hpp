@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:32 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/12 12:41:45 by greengo          ###   ########.fr       */
+/*   Updated: 2023/06/19 16:36:52 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 #include <iostream>
 
 class   PhoneBook {
-    public:
-    PhoneBook();
-    ~PhoneBook();
-    
-    bool    add();
-    bool    search();
+	public:
+	PhoneBook();
+	~PhoneBook();
+	
+	bool	add();
+	bool	search();
 
-    private:
-    Contact _contact_Array[8];
-    int     lastest_add;
+	private:
+	Contact	_contact_Array[8];
+	int		lastest_add;
 };
