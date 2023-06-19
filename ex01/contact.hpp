@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:21:06 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/12 13:15:56 by greengo          ###   ########.fr       */
+/*   Updated: 2023/06/18 17:45:46 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class   Contact {
     bool    setter_nickname(void);
     bool    setter_phone_number(void);
     bool    setter_secret(void);
-    
+    char    *getter_first_name(void);
 
     private:
     std::string _first_name;
