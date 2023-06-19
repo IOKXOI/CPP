@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:13:36 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/16 11:29:03 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/06/16 11:56:16 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ Contact::~Contact() {}
 			return (0);
 		return (1);
 	}
-		
+
 	bool	Contact::setter_secret(void) {
 		std::cout << "Darkest secret:" << std::endl;
 		std::getline(std::cin, this->_secret);
@@ -86,6 +86,5 @@ Contact::~Contact() {}
 			std::cout << "Darkest secret:" << std::endl;
 			std::cin >> this->_secret;
 		} */
-		
 		return (1);
 	}
