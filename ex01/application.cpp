@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:22:40 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/19 16:57:01 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/06/20 17:41:48 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	main(int argc, char *argv[])
 			Interface.add();
 		else if (userInput == "SEARCH" || userInput == "search")
 			Interface.search();
-		else if (userInput == "EXIT")
+		else if (userInput == "EXIT" || userInput == "exit")
 			return (0);
 	}
 	(void)argc;

@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 16:20:32 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/19 16:36:52 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/06/20 18:50:00 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,13 @@ class   PhoneBook {
 	PhoneBook();
 	~PhoneBook();
 	
-	bool	add();
-	bool	search();
+	bool		add();
+	bool		search();
 
 	private:
-	Contact	_contact_Array[8];
-	int		lastest_add;
+	std::string	_display_contact(std::string str);
+	void		_list_contact();
+	bool		_userAnswer();
+	Contact		_contact_Array[8];
+	int			lastest_add;
 };
