@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 18:13:36 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/19 18:58:07 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/06/21 13:29:40 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,4 +100,12 @@ Contact::~Contact() {}
 
 	std::string	Contact::getter_nickname(void) {
 		return (this->_nickname);
+	}
+	
+	std::string	Contact::getter_phone_number(void) {
+		return (this->_phone_number);
+	}
+
+	std::string	Contact::getter_secret(void) {
+		return (this->_secret);
 	}
