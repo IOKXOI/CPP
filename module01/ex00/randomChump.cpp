@@ -1,16 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 18:07:58 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/25 18:11:20 by greengo          ###   ########.fr       */
+/*   Created: 2023/06/25 18:07:45 by greengo           #+#    #+#             */
+/*   Updated: 2023/06/28 10:07:47 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
-{
-	
+#include <iostream>
+#include "Zombie.hpp"
+
+void	randomChump(std::string name) {
+	Zombie  newZombie = Zombie(name);
+	newZombie.announce();
 }

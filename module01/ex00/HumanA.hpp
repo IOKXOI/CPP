@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/06/25 18:07:49 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/25 23:39:43 by greengo          ###   ########.fr       */
+/*   Created: 2023/06/28 14:22:23 by sydauria          #+#    #+#             */
+/*   Updated: 2023/06/28 14:37:42 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+#define HUMANA_HPP
 
-Zombie  *newZombie(std::string name) {
-    return (new     Zombie(name));
+#include <string>
+
+class HumanA {
+	public:
+	HumanA(Weapon* Weapon);
+	~HumanA();
+	const std::string	name;
+	std::string& Weapon;
+	void	attack(void);
+
+	private:
+
 }
 
-Zombie* zombieHorde( int N, std::string name ) {
-    new Zombie[42];
-}
-
-void    destroyZombie(Zombie *thisZombie) {
-    delete thisZombie;
-}
+#endif
