@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/04 18:32:42 by greengo           #+#    #+#             */
-/*   Updated: 2023/07/05 14:12:51 by greengo          ###   ########.fr       */
+/*   Updated: 2023/07/05 14:23:36 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,10 @@ void    HumanB::setWeapon(Weapon &weapon){
 }
 
 void    HumanB::attack(void){
-    std::cout << this->name << " attack with their " << weapon->getType() << std::endl;
+    if (weapon == NULL) {
+        std::cout << this->name << " had bad idea to attack without weapon. What'll happen to " << this->name << "." << std::endl;
+        return;
+    }
+    else
+        std::cout << this->name << " attack with their " << weapon->getType() << "." << std::endl;
 }
