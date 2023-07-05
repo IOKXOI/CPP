@@ -3,20 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
+#    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 10:25:30 by greengo           #+#    #+#              #
-#    Updated: 2023/06/28 10:09:54 by sydauria         ###   ########.fr        #
+#    Updated: 2023/07/05 14:11:08 by greengo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=Plus_de_cerveaux
+NAME=Violence_inutile
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -g3 -std=c++98
 SRCS_DIR=.
 OBJS_DIR=.
 INCS_DIR=incs
-SRCS=Zombie.cpp newZombie.cpp  main.cpp
+SRCS=HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
 SRCS_OBJS= $(patsubst %.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.cpp

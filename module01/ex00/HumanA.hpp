@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:22:23 by sydauria          #+#    #+#             */
-/*   Updated: 2023/06/28 14:37:42 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/07/05 14:09:00 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 #define HUMANA_HPP
 
 #include <string>
+#include "Weapon.hpp"
 
 class HumanA {
 	public:
-	HumanA(Weapon* Weapon);
-	~HumanA();
-	const std::string	name;
-	std::string& Weapon;
-	void	attack(void);
-
+		HumanA(std::string name, Weapon &weapon);
+		~HumanA();
+		
+		const std::string	name;
+		Weapon				&weapon;
+		
+		void	attack(void);
+		
 	private:
 
-}
+};
 
 #endif
