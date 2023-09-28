@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 12:06:24 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/28 15:02:21 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,10 @@ void    Cat::setIdea(const std::string idea) {
 }
 
 std::string    Cat::getIdea(uint8_t ideaIndex) const{
-    return(_brain->ideas[ideaIndex]);
+    return("\033[36m" + _brain->ideas[ideaIndex] + "\033[0m");
+}
+
+Cat* Cat::clone() {
+    return(new Cat(*this));
 }
 //

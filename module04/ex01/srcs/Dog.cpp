@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 12:23:00 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/28 14:06:41 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,9 @@ void Dog::setIdea(const std::string idea) {
 
 std::string Dog::getIdea(uint8_t ideaIndex) const{
     return(_brain->ideas[ideaIndex]);
+}
+
+Dog* Dog::clone() {
+    return (new Dog(*this));
 }
 ///

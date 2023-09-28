@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:22 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 04:55:28 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/28 14:12:40 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void Animal::makeSound() const {
     std::cout << "Hiou I'm Animal" << std::endl;
 }
 
+//
 void Animal::setIdea(const std::string idea) {
     (void)idea;
     return;
@@ -54,6 +55,10 @@ void Animal::setIdea(const std::string idea) {
 std::string Animal::getIdea(uint8_t ideaIndex) const{
     (void)ideaIndex;
     return ("No brain.");
+}
+
+Animal* Animal::clone() {
+    return (new Animal(*this));
 }
 
 std::ostream &operator<<(std::ostream &os, const Animal &Animal) {
