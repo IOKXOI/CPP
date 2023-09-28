@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 05:00:00 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/28 14:12:09 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Dog: public Animal{
         //
         void setIdea(const std::string idea);
         std::string getIdea(uint8_t ideaIndex) const;
+        Dog* clone();
         //
             
     private:
