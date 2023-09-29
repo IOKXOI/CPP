@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:52:25 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 10:46:48 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/28 15:27:57 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ class Brain {
         Brain();
         Brain(const Brain &toCopie);
         Brain& operator=(const Brain &toCopie);
-        ~Brain();
+        virtual ~Brain();
 
         std::string ideas[100];
         //        

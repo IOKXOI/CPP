@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 13:54:31 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/29 16:06:13 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,13 @@ class Cat: public Animal{
     public:
         Cat();
         Cat(const Cat &toCopie);
-        Cat& operator=(const Cat &toCopie);
-        ~Cat();  
+        virtual Cat& operator=(const Cat &toCopie);
+        virtual ~Cat();  
+        
         void makeSound() const;
         void setIdea(const std::string idea);
-        std::string getIdea(uint8_t ideaIndex) const;
-        Cat* clone();
+        virtual std::string getIdea(uint8_t ideaIndex) const;
+        virtual Cat* clone() const;
         
               
     private:

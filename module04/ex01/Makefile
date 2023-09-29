@@ -14,8 +14,6 @@ SRCS		=	main.cpp		\
 				srcs/Animal.cpp	\
 				srcs/Cat.cpp	\
 				srcs/Dog.cpp	\
-				srcs/WrongAnimal.cpp\
-				srcs/WrongCat.cpp\
 				srcs/Brain.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)
