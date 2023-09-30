@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:31:35 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/29 22:08:37 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 02:41:33 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,15 @@ Nuve->setIdea("*Qu'est ce que c'est trop beau la vie d'artiste*");
 std::cout << "Nuve is thinking: " << Nuve->getIdea(1) << std::endl;
 std::cout << "Canelle is thinking: " << Canelle->getIdea(1) << std::endl;
 
-//std::cout << "\033[31m=== Creating [Gribouille] cat ===\033[0m" << std::endl;
+std::cout << "\033[31m=== Creating [Gribouille] cat ===\033[0m" << std::endl;
 Animal* Gribouille = new Cat();
 Gribouille->setIdea("*Euuuuuuuuh les chosent se passent ou quoi?*");
-    std::cout << "Gribouille is thinking: " << Gribouille->getIdea(0) << std::endl;
+std::cout << "Gribouille is thinking: " << Gribouille->getIdea(0) << std::endl;
 std::cout << "\033[32m=== ICI GRIBOUILLE DELETE\033[0m " << std::endl;
 std::cout << "\033[31m=== Polymorphing cloning starting [new Animal Nuve will be create by cloning cat. Nuve should be think like Canelle] ===\033[0m" << std::endl;
-Gribouille = Canelle->clone();
-//std::cout << "Gribouille type: " <<  std::endl;
+Gribouille = Canelle->clone(Gribouille);
+std::cout << "Gribouille type: ";
 std::cout << Gribouille->gettype() << std::endl;
-// std::cout << "Gribouille is thinking: " <<  std::endl;
 std::cout << "Gribouille is thinking: " << Gribouille->getIdea(0) << std::endl;
 std::cout << "Gribouille is thinking: " << Gribouille->getIdea(1) << std::endl;
 

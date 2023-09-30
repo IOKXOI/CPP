@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/29 16:06:13 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 02:38:40 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class Cat: public Animal{
         void setIdea(const std::string idea);
         virtual std::string getIdea(uint8_t ideaIndex) const;
         virtual Cat* clone() const;
+        virtual Cat* clone(Animal *toDelete) const;
         
               
     private:
