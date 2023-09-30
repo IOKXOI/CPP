@@ -6,7 +6,7 @@
 #    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2023/09/28 10:51:58 by greengo          ###   ########.fr        #
+#    Updated: 2023/09/30 01:12:47 by greengo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,6 @@ SRCS		=	main.cpp		\
 				srcs/Animal.cpp	\
 				srcs/Cat.cpp	\
 				srcs/Dog.cpp	\
-				srcs/WrongAnimal.cpp\
-				srcs/WrongCat.cpp\
 				srcs/Brain.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)

@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/29 22:19:20 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 02:45:04 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,7 @@ Cat& Cat::operator=(const Cat &toCopie) {
 }
 
 Cat::~Cat() {
-    if (_brain) {
-        delete _brain;
-    }
+    delete _brain;
     std::cout << "Default Cat destructor called." << std::endl;
 }
 
@@ -54,5 +52,11 @@ std::string    Cat::getIdea(uint8_t ideaIndex) const {
 
 Cat* Cat::clone() const {
     std::cout << "Using Cat polymorphic clonage." << std::endl;
+    return(new Cat(*this));
+}
+
+Cat* Cat::clone(Animal *toDelete) const {
+    std::cout << "Using Cat polymorphic clonage." << std::endl;
+    delete toDelete;
     return(new Cat(*this));
 }

@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:22 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/29 22:24:10 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 02:42:12 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Animal &Animal::operator=(const Animal &toCopie) {
         std::cout << "Animal assigment personalized constructor called." << std::endl;
        delete (this);
     }
-    return (*toCopie.clone());
+    return (*toCopie.clone(NULL));
 }
 
 Animal::~Animal() {
@@ -59,6 +59,12 @@ std::string Animal::getIdea(uint8_t ideaIndex) const{
 
 Animal* Animal::clone() const {
     std::cout << "Using Animal polymorphic clonage." << std::endl;
+    return (new Animal(*this));
+}
+
+Animal* Animal::clone(Animal *toDelete) const {
+    std::cout << "Using Animal polymorphic clonage." << std::endl;
+    delete toDelete;
     return (new Animal(*this));
 }
 
