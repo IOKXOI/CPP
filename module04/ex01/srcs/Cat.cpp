@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 11:37:39 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 12:06:23 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,12 @@ std::string    Cat::getIdea(uint8_t ideaIndex) const {
 }
 
 Cat* Cat::clone() const {
-    std::cout << "Using Cat polymorphic clonage." << std::endl;
+    std::cout << "Using Cat polymorphic copie clonage." << std::endl;
     return(new Cat(*this));
 }
 
 Cat* Cat::clone(Animal *toDelete) const {
-    std::cout << "Using Cat polymorphic clonage." << std::endl;
+    std::cout << "Using Cat polymorphic assignement clonage ." << std::endl;
     delete toDelete;
     return(new Cat(*this));
 }

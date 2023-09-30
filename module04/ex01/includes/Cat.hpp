@@ -6,13 +6,12 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 02:38:40 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 13:16:13 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "Animal.hpp"
-#include "Brain.hpp"
 
 class Cat: public Animal{
     public:

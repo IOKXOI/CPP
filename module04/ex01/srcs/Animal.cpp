@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:22 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 02:42:12 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 13:10:44 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ std::string Animal::getIdea(uint8_t ideaIndex) const{
 }
 
 Animal* Animal::clone() const {
-    std::cout << "Using Animal polymorphic clonage." << std::endl;
+    std::cout << "Using Animal polymorphic copie clonage." << std::endl;
     return (new Animal(*this));
 }
 
 Animal* Animal::clone(Animal *toDelete) const {
-    std::cout << "Using Animal polymorphic clonage." << std::endl;
+    std::cout << "Using Animal polymorphic assignement clonage." << std::endl;
     delete toDelete;
     return (new Animal(*this));
 }

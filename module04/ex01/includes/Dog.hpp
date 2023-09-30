@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 15:28:24 by greengo          ###   ########.fr       */
+/*   Updated: 2023/09/30 12:24:40 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ class Dog: public Animal{
         Dog(const Dog &toCopie);
         Dog& operator=(const Dog &toCopie);
         virtual ~Dog();  
-        void makeSound() const; 
+        virtual void makeSound() const; 
         //
-        void setIdea(const std::string idea);
-        std::string getIdea(uint8_t ideaIndex) const;
-        Dog* clone() const;
+        virtual void setIdea(const std::string idea);
+        virtual std::string getIdea(uint8_t ideaIndex) const;
+        virtual Dog* clone() const;
+        virtual Dog* clone(Animal *toDelete) const;
         //
             
     private:
