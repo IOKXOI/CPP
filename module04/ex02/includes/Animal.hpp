@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:18 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 19:22:00 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/01 04:16:54 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@
 #include <stdint.h>
 #include "Brain.hpp"
 
-class Animal {
+class AAnimal {
     public:
-        Animal();
-        Animal(const std::string type);
-        Animal(const Animal &toCopie);
-        virtual Animal& operator=(const Animal &toCopie);
-        virtual ~Animal();
+        AAnimal();
+        AAnimal(const std::string type);
+        AAnimal(const AAnimal &toCopie);
+        virtual AAnimal& operator=(const AAnimal &toCopie);
+        virtual ~AAnimal();
         
         std::string gettype() const;
         
         virtual void makeSound() const = 0;
         virtual void setIdea(const std::string idea);
         virtual std::string getIdea(uint8_t ideaIndex) const;
-        virtual Animal* clone_cat() const;
-        virtual Animal* clone_dog() const;
-        virtual Animal* clone_cat(const Animal *toDelete) const;
-        virtual Animal* clone_dog(const Animal *toDelete) const;
+        virtual AAnimal* clone_cat() const;
+        virtual AAnimal* clone_dog() const;
+        virtual AAnimal* clone_cat(const AAnimal *toDelete) const;
+        virtual AAnimal* clone_dog(const AAnimal *toDelete) const;
 
 
     protected:
@@ -44,4 +44,4 @@ class Animal {
 
 };
 
-std::ostream &operator<<(std::ostream &os, const Animal &Animal);
+std::ostream &operator<<(std::ostream &os, const AAnimal &Animal);

@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:31:35 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 19:28:51 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/01 04:18:01 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,16 @@
 int main( void ) {
 
 
-//const Animal* meta = new Animal();
-//Animal* Rex = new Dog();
-Animal *Canelle = new Cat();
-//std::cout << Rex->gettype() << " " << std::endl;
-//Rex->makeSound();
-//std::cout << Canelle->gettype() << " " << std::endl;
+AAnimal* Rex = new Dog();
+AAnimal *Canelle = new Cat();
+std::cout << Rex->gettype() << " " << std::endl;
+Rex->makeSound();
 Canelle->makeSound(); //will output the cat sound!
-//std::cout << meta->gettype() << std::endl;
-//meta->makeSound();
+std::cout << Canelle->gettype() << " " << std::endl;
 Canelle->setIdea("*Beautifull day*");
 std::cout << "Canelle is thinking: " << Canelle->getIdea(0) << std::endl;
 std::cout << "\033[31m=== Polymorphing COPIE cloning starting [new Animal Nuve will be create by cloning cat. Nuve should be think same as Canelle] ===\033[0m" << std::endl;  
-Animal *Nuve = Canelle->clone_cat();
+AAnimal *Nuve = Canelle->clone_cat();
 std::cout << "Nuve is thinking: " << Nuve->getIdea(0) << std::endl;
 std::cout << "\033[31m=== Set new idea [Nuve look like a good fella] to Canelle. Nuve should not think here ===\033[0m" << std::endl;
 Canelle->setIdea("*Nuve look like a good fella*");
@@ -41,7 +38,7 @@ std::cout << "Nuve is thinking: " << Nuve->getIdea(1) << std::endl;
 std::cout << "Canelle is thinking: " << Canelle->getIdea(1) << std::endl;
 
 std::cout << "\033[31m=== Creating [Gribouille] cat ===\033[0m" << std::endl;
-Animal* Gribouille = new Cat();
+AAnimal* Gribouille = new Cat();
 Gribouille->setIdea("*Euuuuuuuuh les chosent se passent ou quoi?*");
 std::cout << "Gribouille is thinking: " << Gribouille->getIdea(0) << std::endl;
 std::cout << "\033[32m=== ICI GRIBOUILLE DELETE\033[0m " << std::endl;
@@ -54,11 +51,11 @@ std::cout << "Gribouille is thinking: " << Gribouille->getIdea(1) << std::endl;
 
 std::cout << std::endl;
  
-Animal *Snoop = new Dog();
+AAnimal *Snoop = new Dog();
 Snoop->setIdea("*It was a dark and stormy night...*");
 std::cout << "Snop is thinking: " << Snoop->getIdea(0) << std::endl;
 std::cout << "\033[31m=== Polymorphing COPIE cloning copie starting [new Animal Slink will be create by cloning dog. Slink should be think same as Snoop] ===\033[0m" << std::endl;  
-Animal* Slink = Snoop->clone_dog();
+AAnimal* Slink = Snoop->clone_dog();
 std::cout << "Slink is thinking: " << Slink->getIdea(0) << std::endl;
 std::cout << "\033[31m=== Set new idea [Who Am I(What's my name)?] to Snoop. Slink should not think here ===\033[0m" << std::endl;
 Snoop->setIdea("*Who Am I(What's my name)?*");
@@ -70,7 +67,7 @@ std::cout << "Slink is thinking: " << Slink->getIdea(1) << std::endl;
 std::cout << "Snoop is thinking: " << Snoop->getIdea(1) << std::endl;
 
 std::cout << "\033[31m=== Creating [FrankThePug] dog ===\033[0m" << std::endl;
-Animal* FrankThePug = new Dog();
+AAnimal* FrankThePug = new Dog();
 FrankThePug->setIdea("*I used to love chasing cars, you know? It's a dog thing. And then one day, I woke up and I realized I don't have a driver's license. I mean, who am I chasing? Nobody, that's who.*");
 std::cout << "Frank is thinking: " << FrankThePug->getIdea(0) << std::endl;
 FrankThePug = Snoop->clone_dog(FrankThePug);
@@ -94,6 +91,7 @@ delete (Gribouille);
 delete (Snoop);
 delete (Slink);
 delete (FrankThePug);
+delete (Rex);
 
 
 // Canelle->setIdea("Get up, stand up, humans");

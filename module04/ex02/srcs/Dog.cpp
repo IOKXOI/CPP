@@ -6,23 +6,23 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 19:24:50 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/01 04:16:13 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
 
-Dog::Dog(): Animal("Dog") {
+Dog::Dog(): AAnimal("Dog") {
     std::cout << "Dog constructor called." << std::endl;
     _brain = new Brain();
 }
 
-Dog::Dog(const Dog &toCopie): Animal("Dog") {
+Dog::Dog(const Dog &toCopie): AAnimal("Dog") {
     std::cout << "Dog copie constructor called." << std::endl;
     _brain = new Brain(*toCopie._brain);
 }
 
-Dog::Dog(const Animal &toCopie): Animal(toCopie) {
+Dog::Dog(const AAnimal &toCopie): AAnimal(toCopie) {
     std::cout << "Dog copie constructor called." << std::endl;
 }
 
@@ -59,7 +59,7 @@ Dog* Dog::clone_dog() const{
     return (new Dog(*this));
 }
 
-Dog* Dog::clone_dog(const Animal *toDelete) const{
+Dog* Dog::clone_dog(const AAnimal *toDelete) const{
     std::cout << "Using Dog polymorphic assignement clonage." << std::endl;
     delete toDelete;
     return (new Dog(*this));

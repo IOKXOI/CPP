@@ -6,24 +6,24 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 19:24:45 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/01 04:16:03 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
 #include "Brain.hpp"
 
-Cat::Cat(): Animal("Cat") {  
+Cat::Cat(): AAnimal("Cat") {  
     std::cout << "Cat constructor called." << std::endl;
     _brain = new (Brain);
 }
 
-Cat::Cat(const Cat &toCopie): Animal("Cat") {
+Cat::Cat(const Cat &toCopie): AAnimal("Cat") {
     std::cout << "Cat copie constructor called." << std::endl;
     this->_brain = new Brain(*toCopie._brain);
 }
 
-Cat::Cat(const Animal &toCopie): Animal(toCopie) {
+Cat::Cat(const AAnimal &toCopie): AAnimal(toCopie) {
     std::cout << "Cat copie constructor called." << std::endl;
 }
 
@@ -59,7 +59,7 @@ Cat* Cat::clone_cat() const {
     return(new Cat(*this));
 }
 
-Cat* Cat::clone_cat(const Animal *toDelete) const {
+Cat* Cat::clone_cat(const AAnimal *toDelete) const {
     std::cout << "Using Cat polymorphic assignement clonage ." << std::endl;
     delete toDelete;
     return(new Cat(*this));
