@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:50:59 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/21 13:49:31 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/10/01 14:03:18 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ bool PhoneBook::search() {
 
 void	PhoneBook::_list_contact() {
 	std::cout << std::setw(44) << "\033[0;33mChoose witch contact you want to display\033[0m" << std::endl;
-	std::cout << "Index" << "|";
-	std::cout << "First Name" << "|";
-	std::cout << "Last Name" << "|";
-	std::cout << "Nickname" << "|";
-	std::cout << std::endl;
+	std::cout << std::setw(10) << "INDEX" << "|";
+	std::cout << std::setw(10) << "FIRST NAME" << "|";
+	std::cout << std::setw(10) << "LAST  NAME" << "|";
+	std::cout << std::setw(10) << "NICKNAME" << "|";
+	std::cout << std::setw(10) << std::endl;
 	for (int id = 0; id < 8; id++)
 	{
 		if (_contact_Array[id].getter_first_name().empty())
@@ -77,8 +77,12 @@ bool	PhoneBook::_userAnswer() {
 		std::cout << std::setw(44) << "\033[0;33mDarkest Secret: \033[0m" << _contact_Array[id].getter_secret() << std::endl;
 		return (1);
 	}
-	else
+	else if (_contact_Array[id].getter_first_name().empty()) {
+		std::cout << "No data for this selection." << std::endl;
+	}
+	else {
 		return (0);
+	}
 }
 
 std::string	PhoneBook::_trunc_contact(std::string str) {
