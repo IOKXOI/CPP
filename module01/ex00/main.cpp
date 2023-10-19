@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 18:07:58 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/28 11:10:45 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/10/19 07:07:11 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,10 @@
 
 int	main(void)
 {
-	Zombie	*horde;
-	horde = zombieHorde(5, "Tian");
-	delete[] horde;
+	Zombie	*Franky;
+	Franky = newZombie("Franky");
+	Franky->announce();
+	randomChump("Brand");
+	delete Franky;
 	return (0);
 }

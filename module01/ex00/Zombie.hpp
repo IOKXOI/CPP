@@ -3,29 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
+/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 18:11:58 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/28 10:56:53 by sydauria         ###   ########.fr       */
+/*   Updated: 2023/10/19 07:06:12 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
+#pragma once
 
 #include <string>
 
 class Zombie{
     public:
-        Zombie(void);
-        Zombie(std::string);
-        ~Zombie(void);
-        void    announce(void);
+        Zombie();
+        Zombie(const Zombie &toCopy);
+        Zombie& operator=(const Zombie &toCopy);
+        virtual ~Zombie();
 
+        Zombie(std::string name);
+        void    announce(void);
     private:
         std::string _name;
 };
 
-Zombie	*zombieHorde( int N, std::string name );
-
-#endif
+Zombie	*newZombie(std::string name);
+void	randomChump(std::string name);

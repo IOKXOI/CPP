@@ -6,17 +6,17 @@
 #    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 10:25:30 by greengo           #+#    #+#              #
-#    Updated: 2023/07/05 14:11:08 by greengo          ###   ########.fr        #
+#    Updated: 2023/10/19 06:53:50 by greengo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=Violence_inutile
+NAME=a.out
 CC=c++
-CFLAGS=-Wall -Wextra -Werror -g3 -std=c++98
+CFLAGS=-Wall -Wextra -Werror -std=c++98
 SRCS_DIR=.
 OBJS_DIR=.
 INCS_DIR=incs
-SRCS=HumanA.cpp HumanB.cpp Weapon.cpp main.cpp
+SRCS=main.cpp newZombie.cpp randomChump.cpp Zombie.cpp
 SRCS_OBJS= $(patsubst %.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
 $(OBJS_DIR)/%.o:$(SRCS_DIR)/%.cpp
