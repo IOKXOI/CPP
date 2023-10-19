@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
+#    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/28 13:22:42 by sydauria          #+#    #+#              #
-#    Updated: 2023/06/28 13:23:26 by sydauria         ###   ########.fr        #
+#    Updated: 2023/10/19 08:14:33 by greengo          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME="BONJOUR ICI LE CERVEAU"
+NAME=a.out
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 SRCS_DIR=.
