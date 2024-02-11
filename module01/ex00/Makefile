@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
+#    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 10:25:30 by greengo           #+#    #+#              #
-#    Updated: 2023/10/19 06:53:50 by greengo          ###   ########.fr        #
+#    Updated: 2024/02/11 22:37:02 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME=a.out
+NAME=zombie
 CC=c++
 CFLAGS=-Wall -Wextra -Werror -std=c++98
 SRCS_DIR=.
