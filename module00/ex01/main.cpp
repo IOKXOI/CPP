@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   application.cpp                                    :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:22:40 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/20 17:41:48 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/11 15:43:06 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 		std::cout << "What would you like to do? [ADD] [SEARCH] [EXIT]" << std::endl;
 		std::getline(std::cin, userInput);
 		if (userInput == "ADD" || userInput == "add")
-			Interface.add();
+			Interface.add();	
 		else if (userInput == "SEARCH" || userInput == "search")
 			Interface.search();
 		else if (userInput == "EXIT" || userInput == "exit")

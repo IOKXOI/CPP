@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   phonebook.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:50:59 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/01 14:03:18 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/11 16:40:25 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,8 @@ bool	PhoneBook::_userAnswer() {
 	else {
 		return (0);
 	}
-}
+	return (1);
+}	
 
 std::string	PhoneBook::_trunc_contact(std::string str) {
 	if (str.size() > 10) 
