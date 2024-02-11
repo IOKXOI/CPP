@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:52 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/01 04:15:43 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/18 02:10:17 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,9 @@
 class Cat: public AAnimal{
     public:
         Cat();
-        Cat(const Cat &toCopie);
-        Cat(const AAnimal &toCopie);
-        virtual Cat& operator=(const Cat &toCopie);
+        Cat(const Cat &toCopy);
+        Cat(const AAnimal &toCopy);
+        virtual Cat& operator=(const Cat &toCopy);
         virtual ~Cat();  
         
         void makeSound() const;

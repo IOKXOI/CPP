@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:41:40 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 14:25:15 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/18 02:10:17 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,18 @@ Brain::Brain() {
     std::cout << "Brain default constructor called." << std::endl;
 }
 
-Brain::Brain(const Brain &toCopie) {
+Brain::Brain(const Brain &toCopy) {
     std::cout << "Brain copie constructor called." << std::endl;
     for (int i = 0; i < 100; i++) {
-        ideas[i] = toCopie.ideas[i];
+        ideas[i] = toCopy.ideas[i];
     }
 }
 
-Brain &Brain::operator=(const Brain &toCopie) {
-    if (this != &toCopie) {
+Brain &Brain::operator=(const Brain &toCopy) {
+    if (this != &toCopy) {
         std::cout << "Brain assigment constructor called." << std::endl;
         for (int i = 0; i < 100; i++) {
-            ideas[i] = toCopie.ideas[i];
+            ideas[i] = toCopy.ideas[i];
         }
     }
 return (*this);

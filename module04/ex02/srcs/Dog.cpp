@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/01 04:16:13 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/18 02:10:17 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,20 +17,20 @@ Dog::Dog(): AAnimal("Dog") {
     _brain = new Brain();
 }
 
-Dog::Dog(const Dog &toCopie): AAnimal("Dog") {
+Dog::Dog(const Dog &toCopy): AAnimal("Dog") {
     std::cout << "Dog copie constructor called." << std::endl;
-    _brain = new Brain(*toCopie._brain);
+    _brain = new Brain(*toCopy._brain);
 }
 
-Dog::Dog(const AAnimal &toCopie): AAnimal(toCopie) {
+Dog::Dog(const AAnimal &toCopy): AAnimal(toCopy) {
     std::cout << "Dog copie constructor called." << std::endl;
 }
 
-Dog &Dog::operator=(const Dog &toCopie) {
+Dog &Dog::operator=(const Dog &toCopy) {
     std::cout << "Dog assigment constructor called." << std::endl;
-    if (this != &toCopie) {
+    if (this != &toCopy) {
         delete _brain;
-        _brain = new Brain(*toCopie._brain);
+        _brain = new Brain(*toCopy._brain);
     }
     return (*this);
 }

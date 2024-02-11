@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:22 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/01 04:15:15 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/18 02:10:17 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,13 @@ AAnimal::AAnimal(const std::string type) {
     _type = type;
 }
 
-AAnimal::AAnimal(const AAnimal &toCopie) {
+AAnimal::AAnimal(const AAnimal &toCopy) {
     std::cout << "Animal copie constructor called." << std::endl;
-    _type = toCopie._type;
+    _type = toCopy._type;
 }
 
-AAnimal &AAnimal::operator=(const AAnimal &toCopie) { 
-    if (this != &toCopie) {
+AAnimal &AAnimal::operator=(const AAnimal &toCopy) { 
+    if (this != &toCopy) {
         std::cout << "Animal assigment personalized constructor called." << std::endl;
        delete (this);
     }

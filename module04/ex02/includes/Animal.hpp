@@ -6,7 +6,7 @@
 /*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:18 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/01 04:16:54 by greengo          ###   ########.fr       */
+/*   Updated: 2023/10/18 02:10:17 by greengo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@ class AAnimal {
     public:
         AAnimal();
         AAnimal(const std::string type);
-        AAnimal(const AAnimal &toCopie);
-        virtual AAnimal& operator=(const AAnimal &toCopie);
+        AAnimal(const AAnimal &toCopy);
+        virtual AAnimal& operator=(const AAnimal &toCopy);
         virtual ~AAnimal();
         
         std::string gettype() const;
