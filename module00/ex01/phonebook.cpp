@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:50:59 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/11 16:40:25 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/12 00:14:14 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ bool	PhoneBook::_userAnswer() {
 	std::string	userInput;
 	std::getline(std::cin, userInput);
 	int	id = this->_input_to_id(userInput);
+	while (id < 0 || id > 7) {
+		std::cout << "\033[0;31mInvalid input, try with valid input\033[0m" << std::endl;
+		std::getline(std::cin, userInput);
+		id = this->_input_to_id(userInput);
+	}
 	if (id >= 0 && !_contact_Array[id].getter_first_name().empty())
 	{
 		std::cout << std::setw(44) << "\033[0;33mFirst Name: \033[0m" << _contact_Array[id].getter_first_name() << std::endl;
