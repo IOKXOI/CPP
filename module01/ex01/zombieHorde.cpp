@@ -11,9 +11,17 @@
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+#include <iostream>
 
 Zombie	*newZombie(std::string name) {
-	return (new Zombie(name));
+	Zombie *newZombie = NULL;
+	try {
+		newZombie = new Zombie(name);
+	}
+	catch (const std::bad_alloc &e) {
+		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+	}
+	return (newZombie);
 }
 
 void	randomChump(std::string name) {
@@ -22,7 +30,19 @@ void	randomChump(std::string name) {
 }
 
 Zombie	*zombieHorde( int N, std::string name ) {
-	Zombie *zombieArray = new Zombie[N];
+	if (N < 0 || N > 2147483647) {
+		std::cout << "Invalid number." << std::endl;
+		return (NULL);
+	}
+	Zombie *zombieArray = NULL;
+	
+	try {
+		zombieArray = new Zombie[N];
+	}
+	catch (const std::bad_alloc &e) {
+		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+		return (NULL);
+	}
 	for (int i = 0; i < N; i++) {
 		zombieArray[i] = Zombie(name);
 		zombieArray[i].announce();
