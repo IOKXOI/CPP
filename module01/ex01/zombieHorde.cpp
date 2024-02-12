@@ -19,7 +19,7 @@ Zombie	*newZombie(std::string name) {
 		newZombie = new Zombie(name);
 	}
 	catch (const std::bad_alloc &e) {
-		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+		std::cout << "Memory allocation failed: " << e.what() << std::endl;
 	}
 	return (newZombie);
 }
@@ -40,7 +40,7 @@ Zombie	*zombieHorde( int N, std::string name ) {
 		zombieArray = new Zombie[N];
 	}
 	catch (const std::bad_alloc &e) {
-		std::cerr << "Memory allocation failed: " << e.what() << std::endl;
+		std::cout << "Memory allocation failed: " << e.what() << std::endl;
 		return (NULL);
 	}
 	for (int i = 0; i < N; i++) {

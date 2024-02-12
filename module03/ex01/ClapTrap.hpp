@@ -27,14 +27,14 @@ class ClapTrap {
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);  
         std::string getName() const;
-        uint8_t     getAttack() const;
-        uint8_t     getEnergy() const;
-        uint8_t     getHp() const;
+        uint32_t     getAttack() const;
+        uint32_t     getEnergy() const;
+        int32_t     getHp() const;
         void        setAttackDamage(uint8_t amount);
         ClapTrap(std::string name);        
     private:
         std::string _name;
-        uint32_t     _hp;
+        int32_t     _hp;
         uint32_t     _energy;
         uint32_t     _attack;
 

@@ -19,7 +19,7 @@ Zombie	*newZombie(std::string name) {
 	try {
 		new_Zombie = new Zombie(name);
 	} catch (const std::bad_alloc& e) {
-		std::cerr << "L'allocation de mémoire a échoué : " << e.what() << std::endl;
+		std::cout << "L'allocation de mémoire a échoué : " << e.what() << std::endl;
 	}
 	return (new_Zombie);
 }
