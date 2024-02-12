@@ -88,13 +88,13 @@ void ClapTrap::takeDamage(unsigned int amount){
     << _name 
     << " took "
     << amount;
+    _hp -= amount;
     if (_attack > 1) {
         std::cout << " damages." << std::endl;
     }
     else {
         std::cout << " damage." << std::endl;
     }
-    _hp -= amount;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
@@ -107,6 +107,7 @@ void ClapTrap::beRepaired(unsigned int amount){
     << " HP."
     << std::endl;
     _energy -= 1;
+    _hp += amount;
     }
     else if (_energy <= 0 ) {
         std::cout << _name << " have no enought energy for repair." << std::endl;
