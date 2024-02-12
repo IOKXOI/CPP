@@ -34,7 +34,7 @@ class ClapTrap {
         ClapTrap(std::string name);        
     private:
         std::string _name;
-        uint32_t     _hp;
+        int32_t     _hp;
         uint32_t     _energy;
         uint32_t     _attack;
 

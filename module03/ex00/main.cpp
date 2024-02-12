@@ -39,7 +39,8 @@ int main(void)
 
 	std::cout << "\033[33mHere Booba took 92 damages\033[0m" << std::endl;
 	Booba.takeDamage(92);
-	
+	Booba.attack("N.I");
+
 	std::cout << "\033[31mHere assignment constructor of Claptrap Booba, from Satoshi:\033[0m" << std::endl;
 	Booba = Satoshi;
 
