@@ -15,7 +15,9 @@
 int	main(void)
 {
 	Zombie	*horde;
-	horde = zombieHorde(5, "El Chapo");
+	horde = zombieHorde(2147483647, "El Chapo");
+	if (!horde)
+		return (1);
 	delete[] horde;
 	return (0);
 }
