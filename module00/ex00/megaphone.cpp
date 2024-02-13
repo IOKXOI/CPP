@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:22:40 by greengo           #+#    #+#             */
-/*   Updated: 2023/06/07 16:16:39 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 12:54:50 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ int	main(int argc, char *argv[])
 			for (size_t x = 0; x < std::strlen(argv[i]); x++)
 				std::cout<<(char)std::toupper(argv[i][x]);
 			i++;
-			std::cout<<" ";
 		}
 		std::cout<<std::endl;
 	}
