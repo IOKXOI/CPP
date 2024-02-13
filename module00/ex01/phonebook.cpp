@@ -6,13 +6,14 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:50:59 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/12 00:14:14 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:50:55 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "phonebook.hpp"
 #include <iomanip> //for std::setw();
 #include <string> //for std::stoi
+#include <limits>
 
 PhoneBook::PhoneBook() : lastest_add(0) {}
 PhoneBook::~PhoneBook() {}
@@ -67,10 +68,14 @@ bool	PhoneBook::_userAnswer() {
 	std::cout << "\033[0;33mEnter the index of contact\033[0m" << std::endl;
 	std::string	userInput;
 	std::getline(std::cin, userInput);
+	if (std::cin.eof() || std::cin.fail())
+		return 0;
 	int	id = this->_input_to_id(userInput);
 	while (id < 0 || id > 7) {
 		std::cout << "\033[0;31mInvalid input, try with valid input\033[0m" << std::endl;
 		std::getline(std::cin, userInput);
+		if (std::cin.eof() || std::cin.fail())
+			return 0;
 		id = this->_input_to_id(userInput);
 	}
 	if (id >= 0 && !_contact_Array[id].getter_first_name().empty())
