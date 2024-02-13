@@ -45,10 +45,7 @@ int		Harl::filter( std::string level ) {
 }
 
 void	Harl::complain( int level ) {
-	//while (level < 4) {
 	(this->*array_ptr_ft[level])();
-	//	level++;
-	//}
 }
 
 void	Harl::complainFilter( std::string level) {
