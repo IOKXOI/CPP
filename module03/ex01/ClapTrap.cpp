@@ -39,7 +39,7 @@ ClapTrap::~ClapTrap() {
     std::cout << "Default ClapTrap destructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _attack(0) {
+ClapTrap::ClapTrap(std::string name): _name(name), _hp(100), _energy(50), _attack(20) {
     std::cout << "ClapTrap named constructor called." << std::endl;
 }
 
