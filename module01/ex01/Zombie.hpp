@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 18:11:58 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/19 07:22:43 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:41:32 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,4 @@ class Zombie{
 };
 
 Zombie	*zombieHorde( int N, std::string name );
-void	randomChump(std::string name);
-Zombie	*zombieHorde( int N, std::string name );
-void	destroyZombie(Zombie *thisZombie);
 

@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
+#    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/06/07 10:25:30 by greengo           #+#    #+#              #
-#    Updated: 2023/10/19 08:11:50 by greengo          ###   ########.fr        #
+#    Updated: 2024/02/13 12:48:13 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME=a.out
 CC=c++
-CFLAGS=-Wall -Wextra -Werror -g3 -std=c++98
+CFLAGS=-Wall -Wextra -Werror -std=c++98
 SRCS_DIR=.
 OBJS_DIR=.
 INCS_DIR=incs

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/25 18:07:49 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/19 07:14:20 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:38:55 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,18 +24,12 @@ Zombie	*newZombie(std::string name) {
 	return (newZombie);
 }
 
-void	randomChump(std::string name) {
-	Zombie  newZombie = Zombie(name);
-	newZombie.announce();
-}
-
 Zombie	*zombieHorde( int N, std::string name ) {
-	if (N < 0 || N > 2147483647) {
+	if (N < 1 || N > 2147483647) {
 		std::cout << "Invalid number." << std::endl;
 		return (NULL);
 	}
 	Zombie *zombieArray = NULL;
-	
 	try {
 		zombieArray = new Zombie[N];
 	}
@@ -45,11 +39,6 @@ Zombie	*zombieHorde( int N, std::string name ) {
 	}
 	for (int i = 0; i < N; i++) {
 		zombieArray[i] = Zombie(name);
-		zombieArray[i].announce();
 	}
 	return (zombieArray);
-}
-
-void	destroyZombie(Zombie *thisZombie) {
-	delete thisZombie;
 }

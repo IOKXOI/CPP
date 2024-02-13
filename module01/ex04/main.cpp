@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/19 10:34:17 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/26 21:51:24 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:22:53 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ int main(int argc, char** argv) {
         std::cout << "Invalid parameters" << std::endl;
         return (1);
     }
+    std::string s1(argv[2]);
+    if (s1.empty())
+        return (std::cout << "Invalid first word to search.", 1);
+    std::string s2(argv[3]);
+    if (s2.empty())
+        return (std::cout << "Invalid second word to search.", 1);
     std::ifstream oldFile(argv[1]);
     if (oldFile.fail()) {
         std::cout << ("Open error: Cannot open ") << std::string(argv[1]) << std::endl;
@@ -39,8 +45,6 @@ int main(int argc, char** argv) {
         std::cout << ("Open error: Cannot open ") << destinationName << std::endl;
         return(1);
     }
-    std::string s1(argv[2]);
-    std::string s2(argv[3]);
     std::string line;
     while (std::getline(oldFile, line)) {
         replaceOccurrences(line, s1, s2);
@@ -48,5 +52,4 @@ int main(int argc, char** argv) {
     }
 	oldFile.close();
 	newFile.close();
-
 }

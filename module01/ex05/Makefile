@@ -5,44 +5,35 @@
 #                                                     +:+ +:+         +:+      #
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2024/02/13 12:48:03 by sydauria         ###   ########.fr        #
+#    Created: 2023/06/07 10:25:30 by greengo           #+#    #+#              #
+#    Updated: 2024/02/13 15:02:51 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	main.cpp		\
-				srcs/Animal.cpp	\
-				srcs/Cat.cpp	\
-				srcs/Dog.cpp	\
-				srcs/Brain.cpp\
+NAME=harl
+CC=c++
+CFLAGS=-Wall -Wextra -Werror -std=c++98
+SRCS_DIR=.
+OBJS_DIR=.
+INCS_DIR=incs
+SRCS=main.cpp Harl.cpp
+SRCS_OBJS= $(patsubst %.cpp,$(OBJS_DIR)/%.o,$(SRCS))
 
-OBJS		=	$(SRCS:.cpp=.o)
+$(OBJS_DIR)/%.o:$(SRCS_DIR)/%.cpp
+	@mkdir -vp $(dir $@)
+	$(CC) $(CFLAGS) -o $@ -c $< -I $(INCS_DIR)
 
-CC			=	c++
+all: $(NAME)
 
-RM			=	rm -f
-
-CFLAGS		= 	-Wall -Wextra -Werror -I./includes
-
-CPPFLAGS	= 	-std=c++98
-
-NAME		=	a.out
-
-all:		$(NAME)
-
-.cpp.o:
-	$(CC) $(CFLAGS) $(CPPFLAGS) -c -o $@ $<
-
-
-$(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)	
+$(NAME): $(SRCS_OBJS)
+	$(CC) $(CFLAGS) $^ -o $(NAME)
 
 clean:
-	$(RM) $(OBJS)
+	rm -f *.o
 
-fclean:		clean
-	$(RM) $(NAME)
+fclean: clean
+	rm -f $(NAME)
 
-re:		fclean $(NAME)
+re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY: all clean fclean re
