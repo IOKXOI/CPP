@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 14:22:23 by sydauria          #+#    #+#             */
-/*   Updated: 2023/10/19 10:17:10 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:24:37 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 #include "Weapon.hpp"
 
 class HumanA {
+	private:
+		std::string	name;
 	public:
         HumanA();
         HumanA(const HumanA &toCopy);
@@ -24,9 +26,7 @@ class HumanA {
 		
 		HumanA(std::string name, Weapon &weapon);
 		
-		std::string	name;
 		Weapon		&weapon;
 		void	attack(void);
 		
-	private:
 };
