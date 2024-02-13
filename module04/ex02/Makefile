@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: greengo <greengo@student.42.fr>            +#+  +:+       +#+         #
+#    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2023/09/28 10:51:58 by greengo          ###   ########.fr        #
+#    Updated: 2024/02/13 12:48:03 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,7 +22,7 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I./includes -g3
+CFLAGS		= 	-Wall -Wextra -Werror -I./includes
 
 CPPFLAGS	= 	-std=c++98
 
