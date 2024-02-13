@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/28 12:46:29 by sydauria          #+#    #+#             */
-/*   Updated: 2024/02/07 09:33:12 by greengo          ###   ########.fr       */
+/*   Updated: 2024/02/13 13:11:04 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,14 @@ int main(void) {
     jim.attack();
     bat.setType("some other type of bat");
     jim.attack();
+
+    {
+        Weapon bat = Weapon("crude spiked bat");
+        HumanB jim("Jim");
+        // jim.setWeapon(bat);
+        jim.attack();
+        bat.setType("some other type of bat");
+        jim.attack();   
+    }
     return 0;
 }
