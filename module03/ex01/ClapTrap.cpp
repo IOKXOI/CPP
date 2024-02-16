@@ -39,7 +39,7 @@ ClapTrap::~ClapTrap() {
     std::cout << "Default ClapTrap destructor called." << std::endl;
 }
 
-ClapTrap::ClapTrap(std::string name): _name(name), _hp(100), _energy(50), _attack(20) {
+ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _attack(0) {
     std::cout << "ClapTrap named constructor called." << std::endl;
 }
 
@@ -47,19 +47,19 @@ std::string ClapTrap::getName() const{
     return (_name);
 }
 
-uint8_t     ClapTrap::getAttack() const{
+uint32_t     ClapTrap::getAttack() const{
     return(_attack);
 }
 
-uint8_t     ClapTrap::getEnergy() const{
+uint32_t     ClapTrap::getEnergy() const{
     return(_energy);
 }
 
-uint8_t     ClapTrap::getHp() const{
+int32_t     ClapTrap::getHp() const{
     return(_hp);
 }
 
-void    ClapTrap::setAttackDamage(uint8_t amount) {
+void    ClapTrap::setAttackDamage(uint32_t amount) {
     _attack = amount;
 }
         
