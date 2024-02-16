@@ -1,4 +1,5 @@
 #pragma once
+#include <iostream>
 
 class Fixed {
 	public:
@@ -8,10 +9,14 @@ class Fixed {
 		~Fixed();
 		Fixed(const int nb);
 		Fixed(const float nb);
-		int getRawBits( void ) const;
 		void setRawBits( int const raw );
+		int getRawBits( void ) const;
+		int toInt( void ) const;
+		float toFloat( void ) const;
 
 	private:
 		int					_integer;
-		static const int	_coma;
+		static const int	_coma = 8;
 };
+
+std::ostream& operator<<(std::ostream &os, const Fixed &toPrint);

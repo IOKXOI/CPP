@@ -1,5 +1,6 @@
 #include "Fixed.hpp"
 #include <iostream>
+#include <cmath>
 
 Fixed::Fixed(): _integer(0) {
 	std::cout << "Fixed default constructor called." << std::endl;
@@ -7,11 +8,12 @@ Fixed::Fixed(): _integer(0) {
 
 Fixed::Fixed(const int nb) {
 	std::cout << "Fixed int constructor called." << std::endl;
-	_integer = nb << 8;
+	_integer = nb << _coma;
 }
 
-Fixed::Fixed(<const float nb) : setRawBits(static<int>(nb (1 << 8))) {
+Fixed::Fixed(const float nb){
 	std::cout << "Fixed int constructor called." << std::endl;
+	_integer = roundf(nb * (1 << _coma));	
 }
 
 Fixed::Fixed(const Fixed &toCopy) {
@@ -31,12 +33,23 @@ Fixed::~Fixed() {
 	std::cout << "Default destructor called." << std::endl;
 }
 
+void Fixed::setRawBits( int const raw ) {
+	this->_integer = raw;
+}
+
 int Fixed::getRawBits( void ) const {
-	std::cout << "getRawBits member function called" << std::endl;
 	return (this->_integer);
 }
 
-void Fixed::setRawBits( int const raw ) {
-	std::cout << "setRawBits member function called" << std::endl;
-	this->_integer = raw;
+int Fixed::toInt( void ) const {
+	return (_integer >> _coma);
+}
+
+float Fixed::toFloat( void ) const {
+	return ((float)_integer / (float)( 1 << _coma));
+}
+
+std::ostream& operator<<(std::ostream &os, const Fixed &toPrint) {
+	os << toPrint.toFloat();
+	return (os);
 }
