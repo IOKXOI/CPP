@@ -30,7 +30,7 @@ class ClapTrap {
         uint32_t     getAttack() const;
         uint32_t     getEnergy() const;
         int32_t     getHp() const;
-        void        setAttackDamage(uint8_t amount);
+        void        setAttackDamage(uint32_t amount);
         ClapTrap(std::string name);        
     private:
         std::string _name;
