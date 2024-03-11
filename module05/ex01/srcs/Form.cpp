@@ -8,7 +8,7 @@ Form::Form(const std::string name, const int16_t signRequiredGrade, const int16_
 		throw(GradeTooHighException());
 	else if (_toExecRequiredGrade > 150 || _toSignRequiredGrade > 150)
 		throw(GradeTooLowException());
-	std::cout << "Form constructor called with success" << std::endl;
+	std::cout << "Form constructor called with success." << std::endl;
 
 }
 

@@ -39,11 +39,11 @@ int32_t Bureaucrat::getGrade() const {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Grade is too high.";
+	return "Bureaucrat grade is too high.";
 }
 
 const char  *Bureaucrat::GradeTooLowException::what() const throw() {
-	return "Grade is too low.";
+	return " Bureaucrat grade is too low.";
 }
 
 void Bureaucrat::incrementGrade(void){
@@ -66,13 +66,22 @@ void Bureaucrat::decrementGrade(void){
 	}
 }
 
-void Bureaucrat::signForm(Form &Form) {
-	if (_grade > Form.getSignRequiredGrade()) {
-		std::cout
-		<< getName()
-		<< " signed "
-		<< Form.getName()
-		<< "."
+void Bureaucrat::signForm(Form &form) {
+	if (_grade < form.getSignRequiredGrade()) {
+		std::cout << BOLD RED UNDERLINE
+		<< getName() << RESET RED
+		<< " signed " << BOLD RED UNDERLINE
+		<< form.getName() << RESET RED
+		<< "." << RESET
+		<< std::endl;
+	}
+	else {
+		std::cout << BOLD RED UNDERLINE
+		<< getName() << RESET RED BOLD
+		<< " couldn't sign " << BOLD RED UNDERLINE
+		<< form.getName() << RESET RED BOLD
+		<< " because grade is too low."
+		<< RESET
 		<< std::endl;
 	}
 }
