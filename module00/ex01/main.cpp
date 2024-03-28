@@ -6,13 +6,14 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 10:22:40 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/13 13:50:57 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:04:34 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
 #include <cstring>
+#include <cstdlib>
 #include "phonebook.hpp"
 
 int	main(int argc, char *argv[])

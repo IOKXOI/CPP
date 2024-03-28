@@ -57,6 +57,7 @@ void	Harl::complainFilter( std::string level) {
 			complain(1);
 		case 2:
 			complain(2);
+			;
 		case 3:
 			complain(3);
 			break;

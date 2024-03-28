@@ -6,7 +6,7 @@
 /*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/07 17:50:59 by greengo           #+#    #+#             */
-/*   Updated: 2024/02/13 13:50:55 by sydauria         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:10:09 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,16 @@ bool	PhoneBook::_userAnswer() {
 	std::string	userInput;
 	std::getline(std::cin, userInput);
 	if (std::cin.eof() || std::cin.fail())
-		return 0;
+	{
+		int	a = 1;
+		while (!a) {
+			std::cout << "\033[0;33mEnter the index of contact\033[0m" << std::endl;
+			std::string	userInput;
+			std::getline(std::cin, userInput);
+			if (std::cin.eof() || std::cin.fail())
+				a = 0;
+		}
+	}
 	int	id = this->_input_to_id(userInput);
 	while (id < 0 || id > 7) {
 		std::cout << "\033[0;31mInvalid input, try with valid input\033[0m" << std::endl;

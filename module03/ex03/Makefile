@@ -5,6 +5,7 @@ NAME = clap
 
 SRCS =	ClapTrap.cpp \
 		ScavTrap.cpp \
+		DiamondTrap.cpp \
 		main.cpp
 
 OBJS = ${SRCS:.cpp=.o}

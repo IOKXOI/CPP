@@ -27,7 +27,7 @@ DiamondTrap::~DiamondTrap() {
     std::cout << "Default DiamondTrap destructor called." << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name): ScavTrap(), FragTrap(), _name(ClapTrap::getName()), _hp(FragTrap::getHp), _energy(ScavTrap::getEnergy), _attack(FragTrap::getAttack) {
+DiamondTrap::DiamondTrap(std::string name): ScavTrap::ScavTrap(), FragTrap(), _name(ClapTrap::getName()), _hp(FragTrap::getHp), _energy(ScavTrap::getEnergy), _attack(FragTrap::getAttack) {
     std::cout << "DiamondTrap named constructor called." << std::endl;
 }
 
