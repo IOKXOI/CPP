@@ -28,6 +28,10 @@ class Fixed {
 		Fixed operator-(const Fixed a);
 		Fixed operator*(const Fixed a);
 		Fixed operator/(const Fixed a);
+		Fixed &operator++();
+		Fixed operator++(int);
+		Fixed &operator--();
+		Fixed operator--(int);
 
 	private:
 		int					_integer;

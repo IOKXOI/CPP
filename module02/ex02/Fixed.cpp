@@ -112,6 +112,28 @@ Fixed	Fixed::operator/(const Fixed a) {
 	return Fixed(this->toFloat() / a.toFloat());
 }
 
+Fixed	&Fixed::operator++() {
+	_integer = _integer + (1 << 8);
+	return (*this);
+}
+
+Fixed	Fixed::operator++(int) {
+	Fixed	previous(*this);
+	_integer  = _integer + (1 << 8);
+	return(previous);
+}
+
+Fixed	&Fixed::operator--() {
+	_integer  = _integer - (1 << 8);
+	return(*this);
+}
+
+Fixed	Fixed::operator--(int) {
+	Fixed previous(*this);
+	_integer  = _integer - (1 << 8);
+	return(previous);
+}
+
 Fixed	Fixed::min(const Fixed &fixedNumber1, const Fixed &fixedNumber2) {
 	if (fixedNumber1 < fixedNumber2)
 		return (fixedNumber1);

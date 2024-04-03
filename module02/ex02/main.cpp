@@ -7,6 +7,7 @@ int main( void ) {
     Fixed const c( 42.42f );
     Fixed const d( b );
     a = Fixed( 1234.4321f );
+    Fixed e(100);
 
     std::cout << "a is " << a << std::endl;
     std::cout << "b is " << b << std::endl;
@@ -48,5 +49,12 @@ int main( void ) {
          std::cout << "a is " << a << " and b is " << b << " so a = b." << std::endl << std::endl;
     if (a != b)
          std::cout << "a is " << a << " and b is " << b << " so a != b." << std::endl << std::endl;
+
+    std::cout << "'B' value: " << e << " Operating on it... " << ++e << ". After preincremention: " << e << std::endl;
+    std::cout << "'B' value: " << e << " Operating on it... " << e++ << ". After postincremention: " << e << std::endl;
+    std::cout << "'B' value: " << e << " Operating on it... " << --e << ". After predecremention: " << e << std::endl;
+    std::cout << "'B' value: " << e << " Operating on it... " << e-- << ". After postincremention: " << e << std::endl;
+
+
     return (0);
 }
