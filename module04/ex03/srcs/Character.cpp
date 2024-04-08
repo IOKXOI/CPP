@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 19:53:24 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/19 01:37:11 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 14:58:33 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,8 @@ void Character::unequip(uint8_t idx) {
 }
 
 void Character::use (int idx, ICharacter &target) {
-    _inventory[idx]->use(target);
+    if (_inventory[idx])
+        _inventory[idx]->use(target);
+    else
+        std::cout << "No materia equiped" << std::endl;
 } 
