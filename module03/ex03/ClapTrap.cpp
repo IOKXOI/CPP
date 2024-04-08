@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 04:11:27 by greengo           #+#    #+#             */
-/*   Updated: 2023/11/13 17:00:00 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/07 23:32:01 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ ClapTrap::~ClapTrap() {
 }
 
 ClapTrap::ClapTrap(std::string name): _name(name), _hp(10), _energy(10), _attack(0) {
-    std::cout << "ClapTrap named constructor called." << std::endl;
+    std::cout << "ClapTrap named: " << _name << " constructor called." << std::endl;
 }
 
 std::string ClapTrap::getName() const{
@@ -83,6 +83,10 @@ void    ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+    if (_hp <= 0) {
+        std::cout << "Claptrap " << _name << " already died." << std::endl;
+        return;
+    }
     std::cout
     << "ClapTrap "
     << _name 
@@ -95,19 +99,21 @@ void ClapTrap::takeDamage(unsigned int amount){
     else {
         std::cout << " damage." << std::endl;
     }
+    if (_hp <= 0)
+        std::cout << _name << " died." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
     if (_energy > 0 && _hp > 0) {
-    std::cout
-    << "ClapTrap "
-    << _name
-    << " get repaired and restore "
-    << amount
-    << " HP."
-    << std::endl;
-    _energy -= 1;
-    _hp += amount;
+        std::cout
+        << "ClapTrap "
+        << _name
+        << " get repaired and restore "
+        << amount
+        << " HP."
+        << std::endl;
+        _energy -= 1;
+        _hp += amount;
     }
     else if (_energy <= 0 ) {
         std::cout << _name << " have no enought energy for repair." << std::endl;

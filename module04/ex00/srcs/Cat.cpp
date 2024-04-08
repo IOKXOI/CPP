@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:49:55 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/21 18:34:52 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:48:46 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,11 @@ Cat::~Cat() {
     std::cout << "Default cat destructor called." << std::endl;
 }
 
-std::string Cat::gettype() {
-    return (type);
-}
-
 void Cat::makeSound() const{
-    std::cout << "Miaous" << std::endl;
+    std::cout << "Meow 🐱" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, Cat &Animal) {
-    std::cout << Animal.gettype() << std::endl;
+    std::cout << Animal.getType() << std::endl;
     return (os);
 }

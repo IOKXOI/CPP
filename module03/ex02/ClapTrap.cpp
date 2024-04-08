@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 04:11:27 by greengo           #+#    #+#             */
-/*   Updated: 2023/11/13 17:00:00 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/07 23:31:42 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,10 @@ void    ClapTrap::attack(const std::string& target) {
 }
 
 void ClapTrap::takeDamage(unsigned int amount){
+    if (_hp <= 0) {
+        std::cout << "Claptrap " << _name << " already died." << std::endl;
+        return;
+    }
     std::cout
     << "ClapTrap "
     << _name 
@@ -95,6 +99,8 @@ void ClapTrap::takeDamage(unsigned int amount){
     else {
         std::cout << " damage." << std::endl;
     }
+    if (_hp <= 0)
+        std::cout << _name << " died." << std::endl;
 }
 
 void ClapTrap::beRepaired(unsigned int amount){

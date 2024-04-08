@@ -15,10 +15,11 @@
 #include "AMateria.hpp"
 
 class IMateriaSource {
-    public:
-        virtual ~IMateriaSource() {};  
-        virtual void learnMateria(AMateria *toCopy) = 0;
-        virtual AMateria* createMateria(std::string const &type) = 0;
+	public:
+		virtual ~IMateriaSource() {};  
+		virtual void learnMateria(AMateria *toCopy) = 0;
+		virtual AMateria* createMateria(std::string const &type) = 0;
 
-    private:
+	protected:
+		AMateria *_spellsLearned[4];
 };

@@ -4,6 +4,7 @@ LDFLAGS = -Wall -Wextra -Werror -std=c++98
 NAME = clap
 
 SRCS =	ClapTrap.cpp \
+		ScavTrap.cpp \
 		main.cpp
 
 OBJS = ${SRCS:.cpp=.o}

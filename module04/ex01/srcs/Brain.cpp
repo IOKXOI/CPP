@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:41:40 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/28 14:25:15 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 09:26:28 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,17 +39,7 @@ Brain::~Brain() {
     std::cout << "Default Brain destructor called." << std::endl;
 }
 
-
-//
-void Brain::setIdea(const std::string idea) {
-    uint8_t i = 0;
-    while (!ideas[i].empty() && i < 100) {
-        i++;
-    }
-    ideas[i] = idea;
+std::ostream &operator<<(std::ostream &os, Brain &Brain) {
+	std::cout << &Brain << std::endl;
+	return (os);
 }
-
-std::string Brain::getIdea(uint8_t ideaIndex) {
-    return(ideas[ideaIndex]);
-}
-

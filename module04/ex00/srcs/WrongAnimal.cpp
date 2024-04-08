@@ -3,32 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   WrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 18:37:45 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/21 19:17:05 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 09:47:51 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongAnimal.hpp"
 
 WrongAnimal::WrongAnimal() {
-    std::cout << "WrongAnimal default constructor called." << std::endl;
+	std::cout << "WrongAnimal default constructor called." << std::endl;
+	type = "wrong";
 }
 
 WrongAnimal::WrongAnimal(const WrongAnimal &toCopie) {
-    std::cout << "WrongAnimal copie constructor called." << std::endl;
-    type = toCopie.type;
+	std::cout << "WrongAnimal copie constructor called." << std::endl;
+	type = toCopie.type;
 }
 
 WrongAnimal &WrongAnimal::operator=(const WrongAnimal &toCopie) {
-    std::cout << "WrongAnimal assigment constructor called." << std::endl;
-    if (this != &toCopie) {
-        type = toCopie.type;
-    }
-    return (*this);
+	std::cout << "WrongAnimal assigment constructor called." << std::endl;
+	if (this != &toCopie) {
+		type = toCopie.type;
+	}
+	return (*this);
 }
 
 WrongAnimal::~WrongAnimal() {
-    std::cout << "WrongAnimal default destructor called." << std::endl;
+	std::cout << "WrongAnimal default destructor called." << std::endl;
+}
+
+void	WrongAnimal::makeSound() const {
+	std::cout << "Et dit donc Jamy !" << std::endl;
+}
+
+std::string		WrongAnimal::getType() const {
+	return (type);
 }

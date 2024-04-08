@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 04:11:27 by greengo           #+#    #+#             */
-/*   Updated: 2023/11/13 17:00:00 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/07 23:34:49 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ class ClapTrap {
     private:
         std::string _name;
         int32_t     _hp;
-        uint32_t     _energy;
+        int32_t     _energy;
         uint32_t     _attack;
 
 };

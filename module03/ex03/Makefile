@@ -5,6 +5,7 @@ NAME = clap
 
 SRCS =	ClapTrap.cpp \
 		ScavTrap.cpp \
+		FragTrap.cpp \
 		DiamondTrap.cpp \
 		main.cpp
 

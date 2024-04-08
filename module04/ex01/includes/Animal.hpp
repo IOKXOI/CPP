@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:18 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/30 12:31:57 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 06:58:27 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,22 @@
 #include <string>
 #include <iostream>
 #include <stdint.h>
-#include "Brain.hpp"
 
 class Animal {
-    public:
-        Animal();
-        Animal(const std::string type);
-        Animal(const Animal &toCopie);
-        virtual Animal& operator=(const Animal &toCopie);
-        virtual ~Animal();
-        
-        std::string gettype() const;
-        
-        virtual void makeSound() const;
-        virtual void setIdea(const std::string idea);
-        virtual std::string getIdea(uint8_t ideaIndex) const;
-        virtual Animal* clone() const;
-        virtual Animal* clone(Animal *toDelete) const;
+	public:
+		Animal();
+		Animal(const Animal &toCopie);
+		virtual ~Animal();
 
-    protected:
-            
-    private:
-        std::string _type;
-        
+		Animal& operator=(const Animal &toCopie);
 
+		std::string			getType() const;
+		virtual void		makeSound() const;
 
+	protected:
+		std::string type;
+
+	private:
 };
 
-std::ostream &operator<<(std::ostream &os, const Animal &Animal);
+std::ostream &operator<<(std::ostream &os, Animal &Animal);

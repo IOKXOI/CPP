@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 04:11:27 by greengo           #+#    #+#             */
-/*   Updated: 2023/11/13 17:00:00 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 00:29:34 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class ClapTrap {
         virtual ~ClapTrap();  
         ClapTrap(std::string name);
         
-        void attack(const std::string& target);
+        virtual void attack(const std::string& target);
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);  
         std::string getName() const;
@@ -32,12 +32,11 @@ class ClapTrap {
         uint32_t     getEnergy() const;
         int32_t     getHp() const;
         void        setAttackDamage(uint32_t amount);
-        void guardGate();
 
     protected:
         std::string _name;
         int32_t     _hp;
-        uint32_t     _energy;
+        int32_t     _energy;
         uint32_t     _attack;
 
 };

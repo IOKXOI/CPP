@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/17 17:22:18 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/21 18:34:04 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:48:38 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,20 @@
 #include <iostream>
 
 class Animal {
-    public:
-        Animal();
-        Animal(const Animal &toCopie);
-        Animal& operator=(const Animal &toCopie);
-        ~Animal();
-        std::string gettype();
-        void makeSound() const;
+	public:
+		Animal();
+		Animal(const Animal &toCopie);
+		virtual ~Animal();
 
-    protected:
-        std::string type;
-            
-    private:
+		Animal& operator=(const Animal &toCopie);
 
+		std::string			getType() const;
+		virtual void		makeSound() const;
 
+	protected:
+		std::string type;
+
+	private:
 };
 
 std::ostream &operator<<(std::ostream &os, Animal &Animal);

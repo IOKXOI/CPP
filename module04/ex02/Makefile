@@ -6,15 +6,17 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2024/02/13 12:48:03 by sydauria         ###   ########.fr        #
+#    Updated: 2024/04/08 09:41:40 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	main.cpp		\
-				srcs/Animal.cpp	\
+				srcs/AAnimal.cpp	\
 				srcs/Cat.cpp	\
 				srcs/Dog.cpp	\
 				srcs/Brain.cpp\
+				srcs/WrongAnimal.cpp\
+				srcs/WrongCat.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/22 16:52:25 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/18 02:10:19 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 06:56:54 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 #include <stdint.h>
 
 class Brain {
-    public:
-        Brain();
-        Brain(const Brain &toCopy);
-        Brain& operator=(const Brain &toCopy);
-        virtual ~Brain();
+	public:
+		Brain();
+		Brain(const Brain &toCopie);
+		Brain& operator=(const Brain &toCopie);
+		virtual ~Brain();
 
-        std::string ideas[100];
-        //        
-        void setIdea(const std::string idea);
-        std::string getIdea(uint8_t ideaIndex);
-        //
-    private:
+		std::string ideas[100];
+		
+	private:
 };

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/22 16:31:35 by greengo           #+#    #+#             */
-/*   Updated: 2023/10/19 01:49:55 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 10:42:12 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,21 @@ int main()
     delete Gandalf;
     delete materiaFactory;
     return 0;
+
+    // IMateriaSource* src = new MateriaSource();
+    // src->learnMateria(new Ice());
+    // src->learnMateria(new Cure());
+    // ICharacter* me = new Character("me");
+    // AMateria* tmp;
+    // tmp = src->createMateria("ice");
+    // me->equip(tmp);
+    // tmp = src->createMateria("cure");
+    // me->equip(tmp);
+    // ICharacter* bob = new Character("bob");
+    // me->use(0, *bob);
+    // me->use(1, *bob);
+    // delete bob;
+    // delete me;
+    // delete src;
+    // return 0;
 }

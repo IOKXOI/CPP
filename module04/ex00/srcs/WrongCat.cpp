@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: greengo <greengo@student.42.fr>            +#+  +:+       +#+        */
+/*   By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/21 19:12:22 by greengo           #+#    #+#             */
-/*   Updated: 2023/09/21 19:21:01 by greengo          ###   ########.fr       */
+/*   Updated: 2024/04/08 02:32:51 by sydauria         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "WrongCat.hpp"
 
-WrongCat::WrongCat() {
+WrongCat::WrongCat(): WrongAnimal() {
     std::cout << "WrongCat default constructor called." << std::endl;
     type = "WrongCat";
 }
@@ -33,15 +33,11 @@ WrongCat::~WrongCat() {
     std::cout << "Default WrongCat destructor called." << std::endl;
 }
 
-std::string WrongCat::gettype() {
-    return (type);
-}
-
 void WrongCat::makeSound() const{
-    std::cout << "WrongMiaous" << std::endl;
+    std::cout << "Hiou 🐧" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &os, WrongCat &Animal) {
-    std::cout << Animal.gettype() << std::endl;
+    std::cout << Animal.getType() << std::endl;
     return (os);
 }
