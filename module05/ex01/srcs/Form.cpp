@@ -8,7 +8,7 @@ Form::Form(const std::string name, const int16_t signRequiredGrade, const int16_
 		throw(GradeTooHighException());
 	else if (_toExecRequiredGrade > 150 || _toSignRequiredGrade > 150)
 		throw(GradeTooLowException());
-	std::cout << "Form constructor called with success." << std::endl;
+	std::cout << "Form constructor called for [" << getName() << "] with success." << std::endl;
 
 }
 
@@ -25,7 +25,7 @@ Form &Form::operator=(const Form &toCopy){
 }
 
 Form::~Form(){
-	std::cout << "Form destructor called." << std::endl;
+	std::cout << "Form: [" << getName() << "] destructor called." << std::endl;
 }
 
 std::string	Form::getName() const{
@@ -34,6 +34,10 @@ std::string	Form::getName() const{
 
 bool		Form::getSign() const{
 	return (_signed);
+}
+
+void		Form::setSign(bool x) {
+	_signed = x; 
 }
 
 int16_t		Form::getSignRequiredGrade() const{
@@ -48,17 +52,21 @@ void		Form::beSigned(Bureaucrat &bureaucrat) {
 	if (bureaucrat.getGrade() > _toSignRequiredGrade) {
 		throw(GradeTooLowException());
 	}
-	else {
+	else if (_signed == 0){
 		_signed = 1;
+		return;
+	}
+	else {
+		std::cout << "Form already signed." << std::endl;
 	}
 }
 
 const char	*Form::GradeTooHighException::what() const throw() {
-		return "Grade too high.";
+		return BLINK "Grade too high." RESET;
 }
 
 const char	*Form::GradeTooLowException::what() const throw() {
-		return "Grade too low.";
+		return BLINK "Grade too low." RESET;
 }
 
 std::ostream &operator<<(std::ostream &os, const Form &form) {

@@ -17,7 +17,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &toCopy) {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Destructor called." << std::endl;
+	std::cout << "Bureaucrat: [" << getName() << "] destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, const int32_t grade): _name(name), _grade(grade) {
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int32_t grade): _name(name)
 	else if (_grade > 150) {
 		throw GradeTooLowException();
 	}
-	std::cout << "Bureaucrat grade constructor called with success." << std::endl;
+	std::cout << "Bureaucrat grade constructor for [" << getName() << "] called with success." << std::endl;
 }
 
 const std::string Bureaucrat::getName() const {
@@ -39,11 +39,11 @@ int32_t Bureaucrat::getGrade() const {
 }
 
 const char *Bureaucrat::GradeTooHighException::what() const throw() {
-	return "Bureaucrat grade is too high.";
+	return BLINK "Bureaucrat grade is too high." RESET;
 }
 
 const char  *Bureaucrat::GradeTooLowException::what() const throw() {
-	return " Bureaucrat grade is too low.";
+	return BLINK " Bureaucrat grade is too low." RESET;
 }
 
 void Bureaucrat::incrementGrade(void){
@@ -67,7 +67,8 @@ void Bureaucrat::decrementGrade(void){
 }
 
 void Bureaucrat::signForm(Form &form) {
-	if (_grade < form.getSignRequiredGrade()) {
+	if (_grade < form.getSignRequiredGrade() && form.getSign() == 0) {
+		form.setSign(1);
 		std::cout << BOLD RED UNDERLINE
 		<< getName() << RESET RED
 		<< " signed " << BOLD RED UNDERLINE
@@ -80,7 +81,8 @@ void Bureaucrat::signForm(Form &form) {
 		<< getName() << RESET RED BOLD
 		<< " couldn't sign " << BOLD RED UNDERLINE
 		<< form.getName() << RESET RED BOLD
-		<< " because grade is too low."
+		<< " because "
+		<< (form.getSign() == 0 ? "grade is too low." : "form already signed.")
 		<< RESET
 		<< std::endl;
 	}

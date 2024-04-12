@@ -4,6 +4,7 @@
 #define UNDERLINE "\033[4m"
 #define RED "\033[31m"
 #define BOLD "\033[1m"
+#define BLINK "\033[5m"
 
 class Bureaucrat;
 
@@ -23,6 +24,7 @@ class Form {
 		
 		std::string			getName() const;
 		bool				getSign() const;
+		void				setSign(bool x);
 		void				beSigned(Bureaucrat &bureaucrat);
 		int16_t				getSignRequiredGrade() const;
 		int16_t				getExecRequiredGrade() const;
