@@ -8,10 +8,10 @@ AForm::AForm(): _toSignRequiredGrade(1), _toExecRequiredGrade(1) {
 
 AForm::AForm(const std::string name, const int16_t signRequiredGrade, const int16_t execRequiredGrade): _name(name), _signed(0), _toSignRequiredGrade(signRequiredGrade), _toExecRequiredGrade(execRequiredGrade){
 	if (_toExecRequiredGrade < 1 || _toSignRequiredGrade < 1)
-		throw(GradeTooHighException());
+		throw(GradeTooHighException(name));
 	else if (_toExecRequiredGrade > 150 || _toSignRequiredGrade > 150)
-		throw(GradeTooLowException());
-	std::cout << "AForm constructor called for [" << getName() << "] with success." << std::endl;
+		throw(GradeTooLowException(name));
+	std::cout << "AForm constructor called for with success." << std::endl;
 
 }
 
@@ -28,49 +28,9 @@ AForm &AForm::operator=(const AForm &toCopy){
 }
 
 AForm::~AForm(){
-	std::cout << "AForm: [" << getName() << "] destructor called." << std::endl;
+	std::cout << "AForm destructor called." << std::endl;
 }
 
-std::string	AForm::getName() const{
-	return (this->_name);
-}
-
-bool		AForm::getSign() const{
-	return (this->_signed);
-}
-
-void		AForm::setSign(bool x) {
-	this->_signed = x; 
-}
-
-int16_t		AForm::getSignRequiredGrade() const{
-	return (this->_toSignRequiredGrade);
-}
-
-int16_t		AForm::getExecRequiredGrade() const{
-	return (this->_toExecRequiredGrade);
-}
-
-void		AForm::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > _toSignRequiredGrade) {
-		throw(GradeTooLowException());
-	}
-	else if (_signed == 0){
-		_signed = 1;
-		return;
-	}
-	else {
-		std::cout << "AForm already signed." << std::endl;
-	}
-}
-
-const char	*AForm::GradeTooHighException::what() const throw() {
-		return BLINK "Grade too high." RESET;
-}
-
-const char	*AForm::GradeTooLowException::what() const throw() {
-		return BLINK "Grade too low." RESET;
-}
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm) {
 	std::string	sign = AForm.getSign() ? "signed" : "unsigned";
@@ -86,4 +46,36 @@ std::ostream &operator<<(std::ostream &os, const AForm &AForm) {
 	<< RESET
 	<< std::endl;
 	return os;
+}
+// const char	*AForm::GradeTooHighException::what() const throw() {
+// 		return BLINK "Grade too high." RESET;
+// }
+
+// const char	*AForm::GradeTooLowException::what() const throw() {
+// 		return BLINK "Grade too low." RESET;
+// }
+
+
+AForm::GradeTooHighException::GradeTooHighException(std::string name) {
+	this->_errorName = new std::string(BLINK + name + ": grade too high." + RESET);
+}
+
+AForm::GradeTooHighException::~GradeTooHighException() throw() {
+	delete _errorName;
+}
+
+const char	*AForm::GradeTooHighException::what() const throw() {
+	return _errorName->c_str();
+}
+
+AForm::GradeTooLowException::GradeTooLowException(std::string name) {
+	this->_errorName = new std::string(BLINK + name + ": grade too low." + RESET);
+}
+
+AForm::GradeTooLowException::~GradeTooLowException() throw() {
+	delete _errorName;
+}
+
+const char	*AForm::GradeTooLowException::what() const throw() {
+	return _errorName->c_str();
 }

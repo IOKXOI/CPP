@@ -7,22 +7,22 @@ int	main(void)
 	try
 	{
 		std::cout << "Try creating bureaucrat: " << std::endl;
-		Bureaucrat					gandalf("Gandalf", 100);
+		Bureaucrat					gandalf("Gandalf", 151);
 		ShrubberyCreationForm		trees("forest");
 
 		std::cout << "Try sign " << trees << "Try to sign with: " << gandalf;
 		try {
 			trees.beSigned(gandalf);
 			std::cout << trees;
-			gandalf.signAForm(trees);
+			//gandalf.signAForm(trees);
 			trees.execute(gandalf);
 		}
 		catch (std::exception &e) {
-			std::cout << "Failure to sign: " << e.what() << std::endl;
+			std::cout << "Failure to sign... " << e.what() << std::endl;
 		}
 	}
 	catch(std::exception& e) {
-		std::cout << "Failure to create: " << e.what() << std::endl;
+		std::cout << "Failure to create... " << e.what() << std::endl;
 	}
 
 	// try{

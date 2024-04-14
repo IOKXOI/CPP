@@ -11,7 +11,14 @@ class	ShrubberyCreationForm: public AForm {
 
 		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &toCopy);
 
-		void		execute(Bureaucrat const & executor) const;
+		std::string			getName() const;
+		void				beSigned(Bureaucrat &bureaucrat);
+		bool				getSign() const;
+		void				setSign(bool x);
+		int16_t				getSignRequiredGrade() const;
+		int16_t				getExecRequiredGrade() const;
+		void				execute(Bureaucrat const & executor) const;
+
 	private:
 		const std::string	_name;
 		bool				_signed;

@@ -46,3 +46,38 @@ void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	}
 }
 
+std::string	ShrubberyCreationForm::getName() const {
+	return (this->_name);
+}
+
+bool		ShrubberyCreationForm::getSign() const {
+	return (this->_signed);
+}
+
+void		ShrubberyCreationForm::setSign(bool x) {
+	this->_signed = x; 
+}
+
+int16_t		ShrubberyCreationForm::getSignRequiredGrade() const {
+	return (this->_toSignRequiredGrade);
+}
+
+int16_t		ShrubberyCreationForm::getExecRequiredGrade() const {
+	return (this->_toExecRequiredGrade);
+}
+
+void		ShrubberyCreationForm::beSigned(Bureaucrat &bureaucrat) {
+	if (bureaucrat.getGrade() > _toSignRequiredGrade) {
+		throw(GradeTooLowException(bureaucrat.getName()));
+	}
+	else if (_signed == 0){
+		_signed = 1;
+		return;
+	}
+	else {
+		std::cout << "ShrubberyCreationForm already signed." << std::endl;
+	}
+}
+
+
+

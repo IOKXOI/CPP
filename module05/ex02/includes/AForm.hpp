@@ -21,25 +21,34 @@ class AForm {
 		AForm& 	operator=(const AForm &toCopy);
 		virtual ~AForm();
 		AForm(const std::string name, const int16_t signRequiredGrade, const int16_t execRequiredGrade);
-		
-		std::string			getName() const;
-		bool				getSign() const;
-		void				setSign(bool x);
-		void				beSigned(Bureaucrat &bureaucrat);
-		int16_t				getSignRequiredGrade() const;
-		int16_t				getExecRequiredGrade() const;
-		virtual void		execute(Bureaucrat const & executor) const = 0;
 
-		class GradeTooHighException: public std::exception {
-			public:
-				const char*		what() const throw(); 
-		};
+		virtual void				beSigned(Bureaucrat &bureaucrat) = 0;
+		virtual std::string			getName() const = 0;
+		virtual bool				getSign() const = 0;
+		virtual void				setSign(bool x) = 0;
+		virtual int16_t				getSignRequiredGrade() const = 0;
+		virtual int16_t				getExecRequiredGrade() const = 0;
+		virtual void				execute(Bureaucrat const & executor) const = 0;
 
-		class GradeTooLowException: public std::exception {
-			public:
-				const char*		what() const throw();
-		};
+	class GradeTooHighException: public std::exception {
+		public:
+			virtual const char*		what() const throw();
+			GradeTooHighException(std::string name);
+			~GradeTooHighException() throw();
 
+		private:
+			std::string* _errorName;
+	};
+
+	class GradeTooLowException: public std::exception {
+		public:
+			virtual const char*		what() const throw();
+			GradeTooLowException(std::string name);
+			~GradeTooLowException() throw();
+
+		private:
+			std::string* _errorName;
+	};
 };
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm);

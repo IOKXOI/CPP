@@ -19,16 +19,6 @@ class Bureaucrat {
 		virtual ~Bureaucrat();
 		Bureaucrat(const std::string name, const int32_t grade);
 
-		class GradeTooHighException: public std::exception{
-			public: 
-				const char* what() const throw();
-		};
-		
-		class GradeTooLowException: public std::exception{
-			public:
-				const char* what() const throw();
-
-		};
 
 		const std::string	getName() const;
 		int32_t		getGrade(void) const;
@@ -39,6 +29,28 @@ class Bureaucrat {
 	private: 
 		const std::string	_name;
 		int32_t				_grade;
+
+
+	class GradeTooHighException: public std::exception{
+		public:
+			GradeTooHighException(std::string name);
+			virtual~GradeTooHighException() throw();
+			const char* what() const throw();
+
+		private:
+			std::string *_errorName;
+	};
+		
+	class GradeTooLowException: public std::exception{
+		public:
+			GradeTooLowException(std::string name);
+			~GradeTooLowException() throw();
+			const char* what() const throw();
+		
+		private:
+			std::string *_errorName;
+	};
+
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &obj);
