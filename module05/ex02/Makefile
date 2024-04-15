@@ -6,7 +6,7 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2024/04/12 17:18:22 by sydauria         ###   ########.fr        #
+#    Updated: 2024/04/15 16:14:14 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ SRCS		=	main.cpp						\
 				srcs/Bureaucrat.cpp				\
 				srcs/AForm.cpp					\
 				srcs/ShrubberyCreationForm.cpp	\
+				srcs/PresidentialPardonForm.cpp	\
+				srcs/RobotomyRequestForm.cpp	\
+				
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -40,7 +43,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean:		clean
-	$(RM) $(NAME)
+	$(RM) $(NAME) forest_shrubbery
 
 re:		fclean $(NAME)
 

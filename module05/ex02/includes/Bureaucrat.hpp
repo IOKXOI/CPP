@@ -21,12 +21,12 @@ class Bureaucrat {
 
 
 		const std::string	getName() const;
-		int32_t		getGrade(void) const;
-		void		incrementGrade(void);
-		void		decrementGrade(void);
-		void		signAForm(AForm &AForm);
+		int32_t				getGrade(void) const;
+		void				incrementGrade(void);
+		void				decrementGrade(void);
+		void				signAForm(AForm &AForm);
 
-	private: 
+	private:
 		const std::string	_name;
 		int32_t				_grade;
 
@@ -40,7 +40,7 @@ class Bureaucrat {
 		private:
 			std::string *_errorName;
 	};
-		
+
 	class GradeTooLowException: public std::exception{
 		public:
 			GradeTooLowException(std::string name);
@@ -50,7 +50,6 @@ class Bureaucrat {
 		private:
 			std::string *_errorName;
 	};
-
 };
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &obj);

@@ -2,7 +2,7 @@
 
 
 Bureaucrat::Bureaucrat() {
-	std::cout << "Default bureaucrat constructor" << std::endl;
+	//std::cout << "Default bureaucrat constructor" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &toCopy): _name(toCopy.getName())  {
@@ -17,7 +17,7 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &toCopy) {
 }
 
 Bureaucrat::~Bureaucrat() {
-	std::cout << "Bureaucrat: [" << getName() << "] destructor called." << std::endl;
+	//std::cout << "Bureaucrat: [" << getName() << "] destructor called." << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const std::string name, const int32_t grade): _name(name), _grade(grade) {
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(const std::string name, const int32_t grade): _name(name)
 	else if (_grade > 150) {
 		throw GradeTooLowException(name);
 	}
-	std::cout << "Bureaucrat grade constructor for [" << getName() << "] called with success." << std::endl;
+	//std::cout << "Bureaucrat grade constructor for [" << getName() << "] called with success." << std::endl;
 }
 
 const std::string Bureaucrat::getName() const {

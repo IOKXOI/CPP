@@ -1,83 +1,54 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): AForm(), _signed(0), _toSignRequiredGrade(145), _toExecRequiredGrade(137) {
-	std::cout << "ShrubberyCreationForm default constructor called." << std::endl;
+ShrubberyCreationForm::ShrubberyCreationForm(): AForm() {
+	//std::cout << "ShrubberyCreationForm default constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string name): AForm(name, 1, 1), _name(name), _signed(0), _toSignRequiredGrade(145), _toExecRequiredGrade(137) {
-	std::cout << "ShrubberyCreationForm constructor for [" << getName() << "] called with success." << std::endl;
+ShrubberyCreationForm::ShrubberyCreationForm(std::string target): AForm("ShrubberyCreationForm", 145, 137) {
+	//std::cout << "ShrubberyCreationForm constructor targeting [" << target << "] called with success." << std::endl;
+	_target = target;
 }
-// ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &toCopy) {
-// 	std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
-// }
 
-// ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &toCopy) {
-// 	std::cout << "ShrubberyCreationForm assignement constructor called." << std::endl;
-// }
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &toCopy): AForm("ShrubberyCreationForm", 145, 137), _target(toCopy._target) {
+	//std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
+}
+
+ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &toCopy) {
+	if (this != &toCopy) {
+		_target = toCopy._target;
+		//std::cout << "ShrubberyCreationForm assignement constructor called." << std::endl;
+	}
+	return (*this); 
+}
 
 ShrubberyCreationForm::~ShrubberyCreationForm() {
-	std::cout << "ShrubberyCreationForm [" << getName() << "] destructor called." << std::endl;
+	//std::cout << "ShrubberyCreationForm [" << getName() << "] destructor called." << std::endl;
 }
 
 void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 	try {
-		std::ofstream	outfile((executor.getName() + "_shrubbery").c_str());
+		AForm::execute(executor);
+		std::ofstream	outfile((_target + "_shrubbery").c_str());
 		if (outfile.is_open()) {
-		outfile <<	"               ,@@@@@@@,\n"
-					"       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
-					"    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
-					"   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
-					"   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n"
-					"   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n"
-					"   `&%\\ ` /%&'    |.|        \\ '|8'\n"
-					"       |o|        | |         | |\n"
-					"       |.|        | |         | |\n"
-					"    \\\\/ .\\_\\/_\\/__/  ,\\_\\/\\/__\\\\/.  \\_\\/\\/__/"
-		<< std::endl;
-		outfile.close();
+			outfile <<	"               ,@@@@@@@,\n"
+						"       ,,,.   ,@@@@@@/@@,  .oo8888o.\n"
+						"    ,&%%&%&&%,@@@@@/@@@@@@,8888\\88/8o\n"
+						"   ,%&\\%&&%&&%,@@@\\@@@/@@@88\\88888/88'\n"
+						"   %&&%&%&/%&&%@@\\@@/ /@@@88888\\88888'\n"
+						"   %&&%/ %&%%&&@@\\ V /@@' `88\\8 `/88'\n"
+						"   `&%\\ ` /%&'    |.|        \\ '|8'\n"
+						"       |o|        | |         | |\n"
+						"       |.|        | |         | |\n"
+						"    \\\\/ .\\_\\/_\\/__/  ,\\_\\/\\/__\\\\/.  \\_\\/\\/__/"
+			<< std::endl;
+			outfile.close();
 		}
 		else {
 			throw std::runtime_error("Creating file failed.");
 		}
 	}
 	catch (const std::exception& e) {
-		std::cout << "Error: " << e.what() << std::endl;
+		std::cout << "Cannot exec ShrubberyCreationForm: " << e.what() << std::endl;
 	}
 }
-
-std::string	ShrubberyCreationForm::getName() const {
-	return (this->_name);
-}
-
-bool		ShrubberyCreationForm::getSign() const {
-	return (this->_signed);
-}
-
-void		ShrubberyCreationForm::setSign(bool x) {
-	this->_signed = x; 
-}
-
-int16_t		ShrubberyCreationForm::getSignRequiredGrade() const {
-	return (this->_toSignRequiredGrade);
-}
-
-int16_t		ShrubberyCreationForm::getExecRequiredGrade() const {
-	return (this->_toExecRequiredGrade);
-}
-
-void		ShrubberyCreationForm::beSigned(Bureaucrat &bureaucrat) {
-	if (bureaucrat.getGrade() > _toSignRequiredGrade) {
-		throw(GradeTooLowException(bureaucrat.getName()));
-	}
-	else if (_signed == 0){
-		_signed = 1;
-		return;
-	}
-	else {
-		std::cout << "ShrubberyCreationForm already signed." << std::endl;
-	}
-}
-
-
-

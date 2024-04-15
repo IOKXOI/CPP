@@ -22,13 +22,14 @@ class AForm {
 		virtual ~AForm();
 		AForm(const std::string name, const int16_t signRequiredGrade, const int16_t execRequiredGrade);
 
-		virtual void				beSigned(Bureaucrat &bureaucrat) = 0;
-		virtual std::string			getName() const = 0;
-		virtual bool				getSign() const = 0;
-		virtual void				setSign(bool x) = 0;
-		virtual int16_t				getSignRequiredGrade() const = 0;
-		virtual int16_t				getExecRequiredGrade() const = 0;
-		virtual void				execute(Bureaucrat const & executor) const = 0;
+		virtual const std::string	getName() const;
+		virtual void				beSigned(Bureaucrat &bureaucrat);
+		virtual bool				getSign() const;
+		virtual void				setSign(bool x);
+		virtual int16_t				getSignRequiredGrade() const;
+		virtual int16_t				getExecRequiredGrade() const;
+		virtual void				execute(Bureaucrat const & executor) const;
+
 
 	class GradeTooHighException: public std::exception {
 		public:
@@ -42,12 +43,22 @@ class AForm {
 
 	class GradeTooLowException: public std::exception {
 		public:
-			virtual const char*		what() const throw();
 			GradeTooLowException(std::string name);
 			~GradeTooLowException() throw();
+			virtual const char*		what() const throw();
 
 		private:
 			std::string* _errorName;
+	};
+
+	class NotSignedYet: public std::exception {
+		public:
+			NotSignedYet(std::string name);
+			~NotSignedYet() throw();
+			virtual const char*		what() const throw();
+
+		private:
+			std::string *_errorName;
 	};
 };
 
