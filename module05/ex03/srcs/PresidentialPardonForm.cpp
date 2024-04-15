@@ -4,12 +4,12 @@ PresidentialPardonForm::PresidentialPardonForm(): Form() {
 	//std::cout << "PresidentialPardonForm default constructor called." << std::endl;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 72, 45) {
+PresidentialPardonForm::PresidentialPardonForm(std::string target): Form("PresidentialPardonForm", 25, 5) {
 	//std::cout << "PresidentialPardonForm constructor targeting [" << target << "] called with success." << std::endl;
 	_target = target;
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &toCopy): Form("PresidentialPardonForm", 72, 45), _target(toCopy._target) {
+PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &toCopy): Form("PresidentialPardonForm", 25, 5), _target(toCopy._target) {
 	//std::cout << "PresidentialPardonForm copy constructor called." << std::endl;
 }
 

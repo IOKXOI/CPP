@@ -28,13 +28,12 @@ Intern& Intern::operator=(const Intern& toCopy) {
 }
 
 Form* Intern::makeForm(std::string formName, std::string target) {
-	int index;
+	unsigned long int index;
 
 	for(long unsigned int i = 0; i < formName.size(); i++) {
 		formName[i] = std::tolower(formName[i]);
 	}
-
-	for(index = 0; _registry[index] != formName; index++) {
+	for(index = 0; index < _registry->length() && _registry[index] != formName; index++) {
 		;
 	}
 	switch(index){
