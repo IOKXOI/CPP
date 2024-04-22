@@ -3,49 +3,24 @@
 
 int	main(void)
 {
-	// try
-	// {
-	// 	std::cout << "Try creating bureaucrat: " << std::endl;
-	// 	Bureaucrat	gandalf("Gandalf", 100);
-	// 	//Bureaucrat	sauron("Sauron", -1);
-	// 	std::cout << gandalf;
-
-	// 	std::cout << "Try creating form: " << std::endl;
-	// 	Form 		peace_act("Peace_act", 150, 100);
-	// 	Form 		war_act("War_act", 1, 100);
-	// 	std::cout << peace_act;
-
-	// 	std::cout << "Try sign " << peace_act << "Try to sign with: " << gandalf;
-	// 	try{
-	// 		gandalf.signForm(peace_act);
-	// 		std::cout << peace_act;
-	// 		gandalf.signForm(peace_act);
-	// 		std::cout << peace_act;
-	// 	}
-	// 	catch (std::exception &e) {
-	// 		std::cout << "Failure to sign: " << e.what() << std::endl;
-	// 	}
-	// }
-	// catch(std::exception& e) {
-	// 	std::cout << "Failure to create: " << e.what() << std::endl;
-	// }
-
-	try{
-		std::cout << "Try creating bureaucrat: " << std::endl;
-		Bureaucrat	pipin("Pipin", 100);
-		std::cout << pipin;
-
+	Bureaucrat	gandalf("Gandalf", 100);
+	std::cout << gandalf;
+	try
+	{
 		std::cout << "Try creating form: " << std::endl;
-		Form 		peace_act("Peace_act", 150, 100);
-		//Form 		war_act("War_act", 0, 100);
-		Form 		war_act("War_act", 1, 100);
+		Form 		peace_act("Peace_act", 99, 98);
+		//Form 		peace_act("Peace_act", 150, 100);
+		//Form 		peace_act("Peace_act", -1, 100);
+		//Form 		peace_act("Peace_act", 151, 100);
+		//Form 		peace_act("Peace_act", 150, -1);
+		//Form 		peace_act("Peace_act", 150, 151);
 		std::cout << peace_act;
 
-		std::cout << "Try sign " << peace_act << "Try to sign with: " << pipin;
+		std::cout << "Try sign " << peace_act << "Try to sign with: " << gandalf;
 		try{
-			peace_act.beSigned(pipin);
-			peace_act.beSigned(pipin);
-			war_act.beSigned(pipin);
+			//peace_act.beSigned(gandalf);
+			std::cout << peace_act;
+			gandalf.signForm(peace_act);
 			std::cout << peace_act;
 		}
 		catch (std::exception &e) {
