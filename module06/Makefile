@@ -6,12 +6,13 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2024/04/16 15:36:40 by sydauria         ###   ########.fr        #
+#    Updated: 2024/04/26 20:59:33 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS		=	main.cpp					\
 				srcs/ScalarConverter.cpp	\
+				srcs/boolFunctionParsing.cpp\
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -19,11 +20,11 @@ CC			=	c++
 
 RM			=	rm -f
 
-CFLAGS		= 	-Wall -Wextra -Werror -I./includes
+CFLAGS		=	-Wall -Wextra -Werror -I./includes
 
-CPPFLAGS	= 	-std=c++98
+CPPFLAGS	=	-std=c++98
 
-NAME		=	Bureaucrat
+NAME		=	Converter
 
 all:		$(NAME)
 
@@ -32,7 +33,7 @@ all:		$(NAME)
 
 
 $(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)	
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

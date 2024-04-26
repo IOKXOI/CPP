@@ -1,9 +1,9 @@
 #include "ScalarConverter.hpp"
 
-std::string ScalarConverter::convert(std::string c) {
-	std::istringstream input(c);
-
-	if (input.gcount() == 1) {
-
-	}
+char convertToChar(std::string input) {
+	return (static_cast <char>(input[0]));
 }
+
+// ScalarConverter::convert(std::string _input){
+// 	std::cout << "Char: " << (getInputType(input) == 1) ? "_input" : convertToChar(input) << std::endl;
+// }

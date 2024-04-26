@@ -3,5 +3,5 @@
 #include <sstream>
 
 class ScalarConverter {
-	static std::string	convert(std::string c);
+	static std::string	convert(std::string _input);
 };
