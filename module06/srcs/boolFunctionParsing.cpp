@@ -79,7 +79,7 @@ bool	containtForbidden(std::string input) {
 }
 
 bool	isChar(std::string input) {
-	if (input.length() == 1 && (isAlphaU(input[0]) || isAlphaL(input[0])))
+	if (input.length() == 1)
 		return true;
 	return false;
 }
