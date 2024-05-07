@@ -11,3 +11,4 @@ bool	badCharPosition(char c, int offset, int lenght);
 bool	isChar(std::string input);
 bool	isFloat(std::string input);
 bool	isDouble(std::string input);
+void	printChar(char c);

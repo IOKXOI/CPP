@@ -1,6 +1,8 @@
 #include <sstream>
 #include <iostream>
 #include <stdint.h>
+#include "ScalarConverter.hpp"
+
 
 bool	isNum(char c) {
 	if (c >= '0' && c <= '9')
@@ -10,14 +12,14 @@ bool	isNum(char c) {
 }
 
 bool	isAlphaL(const char c) {
-	if (c >= 'a' & c <= 'z')
+	if (c >= 'a' && c <= 'z')
 		return 1;
 	else
 		return 0;
 }
 
 bool	isAlphaU(const char c) {
-	if (c >= 'A' & c <= 'Z')
+	if (c >= 'A' && c <= 'Z')
 		return 1;
 	else
 		return 0;
@@ -79,7 +81,7 @@ bool	containtForbidden(std::string input) {
 }
 
 bool	isChar(std::string input) {
-	if (input.length() == 1)
+	if (input.length() == 1 && !isNum(*input.c_str()))
 		return true;
 	return false;
 }
@@ -98,5 +100,12 @@ bool	isDouble(std::string input) {
 			return true;
 	}
 	return false;
+}
+
+void	printChar(char c) {
+	if (c > 32 && c < 126) 
+		std::cout << "'" << c << "'" << std::endl;
+	else 
+		std::cout << "Char: Non displayable." << std::endl;
 }
 
