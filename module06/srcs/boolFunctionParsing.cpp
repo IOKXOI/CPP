@@ -103,7 +103,7 @@ bool	isDouble(std::string input) {
 }
 
 void	printChar(char c) {
-	if (c > 32 && c < 126) 
+	if (c >= 32 && c <= 126) 
 		std::cout << "'" << c << "'" << std::endl;
 	else 
 		std::cout << "Char: Non displayable." << std::endl;

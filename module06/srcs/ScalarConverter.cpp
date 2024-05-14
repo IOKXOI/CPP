@@ -5,6 +5,7 @@
 #include <cerrno>
 #include <iostream>
 #include <iomanip>
+#include <limits>
 
 
 
@@ -43,7 +44,13 @@ enum Type{
 
 int	ScalarConverter::getInputType(char *argv) {
 	std::string const	input = argv;
-	if (isChar(input))
+	if (input == "+inf" || input == "+inff")
+		return P_INF_INPUT;
+	else if (input == "-inf" || input == "-inff")
+		return N_INF_INPUT;
+	else if (input == "nan" || input == "nanf")
+		return NAN_INPUT;
+	else if (isChar(input))
 		return CHAR_TYPE;
 	else if (containtForbidden(input))
 		return ERROR_INPUT;
@@ -98,6 +105,26 @@ void	ScalarConverter::convertFromDouble(char* input) {
 		throw (ScalarConverter::Overflow());
 }
 
+void	ScalarConverter::convertFromPInf() {
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Float: " << static_cast <float> (std::numeric_limits<float>::infinity()) << "f" << std::endl;
+	std::cout << "Double : " << std::fixed << std::numeric_limits<double>::infinity() << std::endl;
+}
+
+void	ScalarConverter::convertFromNInf() {
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Float: " << std::fixed << -std::numeric_limits<float>::infinity() << "f" << std::endl;
+	std::cout << "Double : " << std::fixed << -std::numeric_limits<double>::infinity() << std::endl;
+}
+
+void	ScalarConverter::convertFromNan() {
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Char: Impossible." << std::endl;
+	std::cout << "Float: " << std::fixed << std::numeric_limits<double>::quiet_NaN() << "f" << std::endl;
+	std::cout << "Double: " << std::fixed << std::numeric_limits<double>::quiet_NaN() << std::endl;
+}
 
 void	ScalarConverter::convert(char *input) {
 	switch (ScalarConverter::getInputType(input)) {
@@ -131,20 +158,23 @@ void	ScalarConverter::convert(char *input) {
 				return;
 			}
 			break;
-		// case P_INF_INPUT:
-		// 	ScalarConverter::convertFromPInf();
-		// 	break;
-		// case N_INF_INPUT:
-		// 	ScalarConverter::convertFromNInf();
-		// 	break;
-		// case NAN_INPUT:
-		// 	ScalarConverter::convertFromNan();
-		// 	break;
+		case P_INF_INPUT:
+			ScalarConverter::convertFromPInf();
+			return;
+		case N_INF_INPUT:
+			ScalarConverter::convertFromNInf();
+			return;
+		case NAN_INPUT:
+			ScalarConverter::convertFromNan();
+			return;
+		default:
+			std::cout << "Input error." << std::endl;
+			return ;
 	}
 	printChar(ScalarConverter::c);
 	std::cout << "int: " << ScalarConverter::i << std::endl;
-	std::cout << "float: " << ScalarConverter::f << "f" << std::endl;
-	std::cout << "double: " << ScalarConverter::d << std::endl;
+	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast <float> (ScalarConverter::f) << "f" << std::endl;
+	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast <double> (ScalarConverter::d) << std::endl;
 }
 
 const char	*ScalarConverter::Overflow::what() const throw() {

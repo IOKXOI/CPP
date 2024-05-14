@@ -19,6 +19,9 @@ class ScalarConverter {
 	static void		convertFromInt(char* input);
 	static void		convertFromFloat(char* input);
 	static void		convertFromDouble(char* input);
+	static void		convertFromPInf();
+	static void		convertFromNInf();
+	static void		convertFromNan();
 	
 	class Overflow: public std::exception {
 		virtual const char *what() const throw();
