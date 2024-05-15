@@ -1,6 +1,6 @@
 #include "Data.hpp"
 
-Data::Data(): cmember('a'), imember(42), fmember(42.42f), dmember(42.42){}
+Data::Data(): cmember('X'), imember(42), fmember(42.42f), dmember(42.42){}
 
 Data::Data(const Data &toCopy) {
 	cmember = toCopy.cmember;

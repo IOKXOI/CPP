@@ -6,4 +6,10 @@ class Data {
 		int		imember;
 		float	fmember;
 		double	dmember;
+
+		Data();
+		Data(const Data &toCopy);
+		Data &operator=(const Data &toCopy);
+		~Data();
+	private:
 };
