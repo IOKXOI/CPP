@@ -3,29 +3,63 @@
 #include "Base.hpp"
 
 
-Base::Base() {}
+Base::Base() {
+	baseint = -2147483648;
+	identity = "Hello i'm base";
+}
+
 Base::~Base() {}
 
 Base*	Base::generate(void) {
-	A *a = new A();
-	B *b = new B();
-	C *c = new C();
-
 	srand (time(NULL));
 	switch (rand() % 3) {
 		case 0:
-			return ((Base *) a);
+			return (/*(Base *)*/ new A());
 		case 1:
-			return ((Base *) b);
+			return (/*(Base *)*/ new B());
 		case 2:
-			return ((Base *) c);
+			return (/*(Base *)*/ new C());
 	}
-	return (this);
+	return (NULL);
 }
 
-// void	Base::identify(Base* p) {
+void	Base::identify(Base* p) {
+	if (dynamic_cast<A*> (p))
+		std::cout << p << " pointer is an object from class A." << std::endl;
+	else if (dynamic_cast<B*> (p))
+		std::cout << p << " pointer is an object from class B." << std::endl;
+	else if (dynamic_cast<C*> (p))
+		std::cout << p << " pointer is an object from class C." << std::endl;
+	else 
+		std::cout << p << " pointer is an object from class Base." << std::endl;
+}
 
-// }
+void	Base::identify(Base& p) {
+	try {
+		(void)dynamic_cast<A &> (p);
+		std::cout << &p << " pointer is an object from class A." << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		(void)dynamic_cast<B &> (p);
+		std::cout << &p << " pointer is an object from class B." << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+	try {
+		(void)dynamic_cast<C &> (p);
+		std::cout << &p << " pointer is an object from class C." << std::endl;
+	}
+	catch (std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
+}
+
+
+
 
 // void	Base::identify(Base& p) {
 
