@@ -13,6 +13,17 @@ Bureaucrat::Bureaucrat(const std::string name, const int32_t grade): name(name),
 	}
 }
 
+Bureaucrat::Bureaucrat(const Bureaucrat &toCopy): name(toCopy.getName()) {
+	grade = toCopy.grade;
+}
+
+Bureaucrat	&Bureaucrat::operator=(const Bureaucrat &toCopy) {
+	if (this != &toCopy) {
+		grade = toCopy.grade;
+	}
+	return *this;
+}
+
 Bureaucrat::~Bureaucrat() {
 	std::cout << "Destructor called." << std::endl;
 }

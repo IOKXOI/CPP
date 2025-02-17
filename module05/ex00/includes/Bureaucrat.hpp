@@ -8,9 +8,9 @@ class Bureaucrat {
 	public:
 		Bureaucrat();
 		Bureaucrat(const std::string name, const int32_t grade);
-		Bureaucrat(Bureaucrat &toCopy);
+		Bureaucrat(const Bureaucrat &toCopy);
+		Bureaucrat& operator=(const Bureaucrat &toCopy);
 		virtual ~Bureaucrat();
-		Bureaucrat& operator=(Bureaucrat &toCopy);
 
 		std::string			getName(void) const;
 		int32_t				getGrade(void) const;
@@ -27,7 +27,6 @@ class Bureaucrat {
 		class GradeTooLowException: public std::exception{
 			public:
 				const char* what() const throw();
-
 		};
 	private: 
 };
