@@ -25,6 +25,7 @@ class Bureaucrat {
 		void				incrementGrade(void);
 		void				decrementGrade(void);
 		void				signAForm(AForm &AForm);
+		void				executeForm(AForm const & form);
 
 	private:
 		const std::string	_name;

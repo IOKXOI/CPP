@@ -80,7 +80,9 @@ void Bureaucrat::signAForm(AForm &AForm) {
 	}
 }
 
-
+void Bureaucrat::executeForm(AForm const & form){
+	form.execute(*this);
+}
 
 std::ostream& operator<<(std::ostream &os, const Bureaucrat &obj){
 	os << BLUE BOLD
