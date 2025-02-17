@@ -1,7 +1,7 @@
 #include "Form.hpp"
 
 
-// Form::Form(){}
+Form::Form(): _name("empty"), _signed(0), _toSignRequiredGrade(0), _toExecRequiredGrade(0) {}
 
 Form::Form(const std::string name, const int16_t signRequiredGrade, const int16_t execRequiredGrade): _name(name), _signed(0), _toSignRequiredGrade(signRequiredGrade), _toExecRequiredGrade(execRequiredGrade){
 	if (_toExecRequiredGrade < 1 || _toSignRequiredGrade < 1)
@@ -9,12 +9,13 @@ Form::Form(const std::string name, const int16_t signRequiredGrade, const int16_
 	else if (_toExecRequiredGrade > 150 || _toSignRequiredGrade > 150)
 		throw(GradeTooLowException());
 	std::cout << "Form constructor called for [" << getName() << "] with success." << std::endl;
-
 }
+
 
 Form::Form(const Form &toCopy): _name(toCopy.getName()), _signed(toCopy.getSign()), _toSignRequiredGrade(toCopy.getSignRequiredGrade()), _toExecRequiredGrade(toCopy.getExecRequiredGrade()) {
 	std::cout << "Copy constructor called." << std::endl;
 }
+
 
 Form &Form::operator=(const Form &toCopy){
 	std::cout << "Assignement constructor called." << std::endl;
@@ -24,9 +25,13 @@ Form &Form::operator=(const Form &toCopy){
 	return (*this);
 }
 
+
 Form::~Form(){
 	std::cout << "Form: [" << getName() << "] destructor called." << std::endl;
 }
+
+
+
 
 std::string	Form::getName() const{
 	return (_name);

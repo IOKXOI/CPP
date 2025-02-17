@@ -68,7 +68,7 @@ void Bureaucrat::decrementGrade(void){
 
 void Bureaucrat::signForm(Form &form) {
 	if (_grade < form.getSignRequiredGrade() && form.getSign() == 0) {
-		form.setSign(1);
+		form.beSigned(*this);
 		std::cout << BOLD RED UNDERLINE
 		<< getName() << RESET RED
 		<< " signed " << BOLD RED UNDERLINE
