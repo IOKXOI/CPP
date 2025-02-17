@@ -1,15 +1,15 @@
 #pragma once
 
-#include "Form.hpp"
+#include "AForm.hpp"
 
-class PresidentialPardonForm: public Form {
+class PresidentialPardonAForm: public AForm {
 	public:
-		PresidentialPardonForm();
-		PresidentialPardonForm(const PresidentialPardonForm &toCopy);
-		~PresidentialPardonForm();
-		PresidentialPardonForm(std::string target);
+		PresidentialPardonAForm();
+		PresidentialPardonAForm(const PresidentialPardonAForm &toCopy);
+		~PresidentialPardonAForm();
+		PresidentialPardonAForm(std::string target);
 
-		PresidentialPardonForm& operator=(const PresidentialPardonForm &toCopy);
+		PresidentialPardonAForm& operator=(const PresidentialPardonAForm &toCopy);
 
 		void				execute(Bureaucrat const & executor) const;
 

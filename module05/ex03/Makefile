@@ -12,7 +12,7 @@
 
 SRCS		=	main.cpp						\
 				srcs/Bureaucrat.cpp				\
-				srcs/Form.cpp					\
+				srcs/AForm.cpp					\
 				srcs/ShrubberyCreationForm.cpp	\
 				srcs/PresidentialPardonForm.cpp	\
 				srcs/RobotomyRequestForm.cpp	\

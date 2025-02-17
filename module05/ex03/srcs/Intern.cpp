@@ -1,5 +1,5 @@
 #include "Intern.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -27,24 +27,28 @@ Intern& Intern::operator=(const Intern& toCopy) {
 	return (*this);
 }
 
-Form* Intern::makeForm(std::string formName, std::string target) {
+AForm* Intern::makeAForm(std::string formName, std::string target) {
 	unsigned long int index;
+
+	size_t array_size = sizeof(_registry) / sizeof(_registry[0]);
 
 	for(long unsigned int i = 0; i < formName.size(); i++) {
 		formName[i] = std::tolower(formName[i]);
 	}
-	for(index = 0; index < _registry->length() && _registry[index] != formName; index++) {
+	for(index = 0; index < array_size && _registry[index] != formName; index++) {
 		;
 	}
 	switch(index){
 		case 0:
-			return new PresidentialPardonForm(target);
+			return new PresidentialPardonAForm(target);
 		case 1:
-			return new RobotomyRequestForm(target);
+			return new RobotomyRequestAForm(target);
 		case 2:
-			return new ShrubberyCreationForm(target);
+			return new ShrubberyCreationAForm(target);
 		default:
-			return new Form();
+			std::cout << "I don't have [" << formName << "] form in my repositary, I'm sorry buddy." << std::endl;
+
+			return NULL;
 	}
 
 }

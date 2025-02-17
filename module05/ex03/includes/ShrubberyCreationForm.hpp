@@ -1,15 +1,15 @@
 #pragma once
-#include "Form.hpp"
+#include "AForm.hpp"
 
 
-class	ShrubberyCreationForm: public Form {
+class	ShrubberyCreationAForm: public AForm {
 	public:
-		ShrubberyCreationForm();
-		ShrubberyCreationForm(const ShrubberyCreationForm &toCopy);
-		~ShrubberyCreationForm();
-		ShrubberyCreationForm(std::string target);
+		ShrubberyCreationAForm();
+		ShrubberyCreationAForm(const ShrubberyCreationAForm &toCopy);
+		~ShrubberyCreationAForm();
+		ShrubberyCreationAForm(std::string target);
 
-		ShrubberyCreationForm& operator=(const ShrubberyCreationForm &toCopy);
+		ShrubberyCreationAForm& operator=(const ShrubberyCreationAForm &toCopy);
 
 		void				execute(Bureaucrat const & executor) const;
 

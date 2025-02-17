@@ -1,34 +1,34 @@
 #include "ShrubberyCreationForm.hpp"
 #include <fstream>
 
-ShrubberyCreationForm::ShrubberyCreationForm(): Form() {
-	//std::cout << "ShrubberyCreationForm default constructor called." << std::endl;
+ShrubberyCreationAForm::ShrubberyCreationAForm(): AForm() {
+	//std::cout << "ShrubberyCreationAForm default constructor called." << std::endl;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(std::string target): Form("ShrubberyCreationForm", 145, 137) {
-	//std::cout << "ShrubberyCreationForm constructor targeting [" << target << "] called with success." << std::endl;
+ShrubberyCreationAForm::ShrubberyCreationAForm(std::string target): AForm("ShrubberyCreationAForm", 145, 137) {
+	//std::cout << "ShrubberyCreationAForm constructor targeting [" << target << "] called with success." << std::endl;
 	_target = target;
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &toCopy): Form("ShrubberyCreationForm", 145, 137), _target(toCopy._target) {
-	//std::cout << "ShrubberyCreationForm copy constructor called." << std::endl;
+ShrubberyCreationAForm::ShrubberyCreationAForm(const ShrubberyCreationAForm &toCopy): AForm("ShrubberyCreationAForm", 145, 137), _target(toCopy._target) {
+	//std::cout << "ShrubberyCreationAForm copy constructor called." << std::endl;
 }
 
-ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationForm &toCopy) {
+ShrubberyCreationAForm &ShrubberyCreationAForm::operator=(const ShrubberyCreationAForm &toCopy) {
 	if (this != &toCopy) {
 		_target = toCopy._target;
-		//std::cout << "ShrubberyCreationForm assignement constructor called." << std::endl;
+		//std::cout << "ShrubberyCreationAForm assignement constructor called." << std::endl;
 	}
 	return (*this); 
 }
 
-ShrubberyCreationForm::~ShrubberyCreationForm() {
-	//std::cout << "ShrubberyCreationForm [" << getName() << "] destructor called." << std::endl;
+ShrubberyCreationAForm::~ShrubberyCreationAForm() {
+	//std::cout << "ShrubberyCreationAForm [" << getName() << "] destructor called." << std::endl;
 }
 
-void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
+void		ShrubberyCreationAForm::execute(Bureaucrat const & executor) const {
 	try {
-		Form::execute(executor);
+		AForm::execute(executor);
 		std::ofstream	outfile((_target + "_shrubbery").c_str());
 		if (outfile.is_open()) {
 			outfile <<	"               ,@@@@@@@,\n"
@@ -49,6 +49,6 @@ void		ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
 		}
 	}
 	catch (const std::exception& e) {
-		std::cout << "Cannot exec ShrubberyCreationForm: " << e.what() << std::endl;
+		std::cout << "Cannot exec ShrubberyCreationAForm: " << e.what() << std::endl;
 	}
 }

@@ -58,13 +58,13 @@ void Bureaucrat::decrementGrade(void){
 	}
 }
 
-void Bureaucrat::signForm(Form &Form) {
-	if (_grade < Form.getSignRequiredGrade() && Form.getSign() == 0) {
-		Form.setSign(1);
+void Bureaucrat::signAForm(AForm &AForm) {
+	if (_grade < AForm.getSignRequiredGrade() && AForm.getSign() == 0) {
+		AForm.setSign(1);
 		std::cout << BOLD RED UNDERLINE
 		<< getName() << RESET RED
 		<< " signed " << BOLD RED UNDERLINE
-		<< Form.getName() << RESET RED
+		<< AForm.getName() << RESET RED
 		<< "." << RESET
 		<< std::endl;
 	}
@@ -72,9 +72,9 @@ void Bureaucrat::signForm(Form &Form) {
 		std::cout << BOLD RED UNDERLINE
 		<< getName() << RESET RED BOLD
 		<< " couldn't sign " << BOLD RED UNDERLINE
-		<< Form.getName() << RESET RED BOLD
+		<< AForm.getName() << RESET RED BOLD
 		<< " because "
-		<< (Form.getSign() == 0 ? "grade is too low." : "Form already signed.")
+		<< (AForm.getSign() == 0 ? "grade is too low." : "AForm already signed.")
 		<< RESET
 		<< std::endl;
 	}

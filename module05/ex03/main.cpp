@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "ShrubberyCreationForm.hpp"
@@ -9,10 +9,13 @@
 int	main(void)
 {
 	Intern someRandomIntern;
-	Form* rrf;
-	//rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-	//rrf = someRandomIntern.makeForm("Shruberry creation", "Bender");
+	AForm* rrf;
+	//rrf = someRandomIntern.makeAForm("robotomy request", "Bender");
+	//rrf = someRandomIntern.makeAForm("presidential pardon", "Bender");
+	rrf = someRandomIntern.makeAForm("presidential jailing", "Bender");
+	if (rrf == NULL)
+		return 1;
+	//rrf = someRandomIntern.makeAForm("Shruberry creation", "Bender");
 	//Bureaucrat MeeseeksBox("Meeseeks", 5);
 	Bureaucrat MeeseeksBox("Meeseeks",6); // cannot exec presidential pardon
 	//Bureaucrat MeeseeksBox("Meeseeks", 45);

@@ -1,7 +1,7 @@
 #pragma once
-#include "string"
+#include <string>
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 class Intern {
 	public:
@@ -10,7 +10,7 @@ class Intern {
 		~Intern();
 		Intern& operator=(const Intern& toCopy);
 
-		Form* makeForm(std::string formName, std::string target);
+		AForm* makeAForm(std::string formName, std::string target);
 
 	private:
 	std::string	_registry[3];

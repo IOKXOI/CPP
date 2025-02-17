@@ -3,13 +3,13 @@
 #include <stdint.h>
 #include <iostream>
 #include <exception>
-#include "Form.hpp"
+#include "AForm.hpp"
 #define BLUE "\033[34m"
 #define RESET "\033[0m"
 #define BOLD "\033[1m"
 
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 	public:
@@ -24,7 +24,7 @@ class Bureaucrat {
 		int32_t				getGrade(void) const;
 		void				incrementGrade(void);
 		void				decrementGrade(void);
-		void				signForm(Form &Form);
+		void				signAForm(AForm &AForm);
 
 	private:
 		const std::string	_name;
