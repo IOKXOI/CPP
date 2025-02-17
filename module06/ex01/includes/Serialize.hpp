@@ -8,4 +8,9 @@ class	Serialize{
 		static Data*		deserialize(uintptr_t raw);
 
 	private:
+		Serialize();
+		Serialize(const Serialize &toCopy);
+		Serialize &operator=(const Serialize &toCopy);
+		~Serialize();
+
 };

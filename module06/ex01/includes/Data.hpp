@@ -12,4 +12,4 @@ class Data {
 		Data &operator=(const Data &toCopy);
 		~Data();
 	private:
-};
+	};
