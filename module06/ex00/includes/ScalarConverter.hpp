@@ -5,14 +5,9 @@
 
 class ScalarConverter {
 	public:
-
-	ScalarConverter();
-	ScalarConverter(ScalarConverter &toCopy);
-	//ScalarConverter=(ScalarConverter &toCopy);
-	~ScalarConverter();
 	
 	ScalarConverter(std::string input);
-
+	
 	static void		convert(char *input);
 	static int		getInputType(char *argv);
 	static void		convertFromChar(char* input);
@@ -26,10 +21,15 @@ class ScalarConverter {
 	class Overflow: public std::exception {
 		virtual const char *what() const throw();
 	};
-
+	
 	private:
-	static char		c;
-	static int		i;
-	static float	f;
-	static double	d;
+		ScalarConverter();
+		ScalarConverter(const ScalarConverter &toCopy);
+		ScalarConverter &operator=(const ScalarConverter &toCopy);
+		~ScalarConverter();
+
+		static char		c;
+		static int		i;
+		static float	f;
+		static double	d;
 };

@@ -14,23 +14,27 @@ int			ScalarConverter::i = 0;
 float		ScalarConverter::f = 0;
 double		ScalarConverter::d = 0;
 
-// ScalarConverter::ScalarConverter() {};
-// ScalarConverter::ScalarConverter(std::string input) {
-// 	if (input.empty())
-// 		throw (ScalarConverter::EmptyInput());
-// 	else if (input == "-inf")
-// 		_-inf = true;
-// 	else if (input == "-inff")
-// 		_-inff = true;
-// 	else if (input == "+inf")
-// 		_+inf = true;
-// 	else if (input == "+inff")
-// 		_+inff = true;
-// 	else if (input == "nan")
-// 		_nan = true;
-// 	else 
-// 		throw (getInputType(input));
-// };
+ScalarConverter::ScalarConverter() {};
+
+ScalarConverter::ScalarConverter(const ScalarConverter &toCopy) {
+	c = toCopy.c;
+	i = toCopy.i;
+	f = toCopy.f;
+	d = toCopy.d;
+}
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter &toCopy) {
+	if (this != &toCopy) {
+		c = toCopy.c;
+		i = toCopy.i;
+		f = toCopy.f;
+		d = toCopy.d;
+	}
+	return (*this);
+}
+
+ScalarConverter::~ScalarConverter() {};
+
 enum Type{
 	ERROR_INPUT = 0,
 	CHAR_TYPE = 1,

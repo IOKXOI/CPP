@@ -24,7 +24,7 @@ CFLAGS		=	-Wall -Wextra -Werror -I ./includes
 
 CPPFLAGS	=	-std=c++98
 
-NAME		=	Converter
+NAME		=	convert
 
 all:		$(NAME)
 
