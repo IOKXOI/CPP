@@ -13,13 +13,15 @@ class AForm {
 		const std::string	_name;
 		bool				_signed;
 		const int16_t		_toSignRequiredGrade;
-		const int16_t		_toExecRequiredGrade; 
+		const int16_t		_toExecRequiredGrade;
 
 	public:
 		AForm();
 		AForm(const AForm &toCopy);
 		AForm& 	operator=(const AForm &toCopy);
 		virtual ~AForm();
+
+
 		AForm(const std::string name, const int16_t signRequiredGrade, const int16_t execRequiredGrade);
 
 		virtual const std::string	getName() const;
@@ -28,7 +30,7 @@ class AForm {
 		virtual void				setSign(bool x);
 		virtual int16_t				getSignRequiredGrade() const;
 		virtual int16_t				getExecRequiredGrade() const;
-		virtual void				execute(Bureaucrat const & executor) const;
+		virtual void				execute(Bureaucrat const & executor) const = 0;
 
 
 	class GradeTooHighException: public std::exception {
