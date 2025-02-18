@@ -4,7 +4,7 @@
 
 template <typename T>
 Array<T>::Array() {
-	array = new T();
+	array = new T[0];
 	elementNumber = 0;
 }
 
@@ -16,17 +16,30 @@ Array<T>::Array(unsigned int n) {
 
 template <typename T>
 Array<T>::Array(const Array<T> &toCopy) {
-	array = this.array;
-	elementNumber = this.elementNumber;
+	elementNumber = toCopy.elementNumber;
+	array = new T[elementNumber]();
+
+	for (size_t i = 0; i < elementNumber; i++)
+		array[i] = toCopy.array[i];
 }
+
+// template <typename T>
+// Array<T>::Array(const Array<T> &toCopy): Array(toCopy.elementNumber) {
+// 	for (size_t i = 0; i < elementNumber; i++)
+// 		array[i] = toCopy.array[i];
+// }
+
 
 template <typename T>
 Array<T>	&Array<T>::operator=(const Array<T> &toCopy) {
 	if (this != &toCopy) {
-		array = this.array;
-		elementNumber = this.elementNumber;
+		delete[] array;
+		elementNumber = toCopy.elementNumber;
+		array = new T[elementNumber] ();
+		for (size_t i = 0; i < elementNumber; i++)
+			array[i] = toCopy.array[i];
 	}
-	return (this);
+	return (*this);
 }
 
 template <typename T>
@@ -48,11 +61,25 @@ void	Array<T>::accessElement(unsigned int n) {
 }
 
 template <typename T>
+T	Array<T>::getElement(unsigned int n) {
+	try {
+		if (n + 1 > size()) {
+			throw std::out_of_range("Index out of range");
+		}
+	}
+	catch (std::exception &e) {
+		std::cout << "Erreur: " << e.what() << std::endl;
+	}
+	return (array[n]);
+}
+
+template <typename T>
 unsigned int		Array<T>::size() const{
 	return (this->elementNumber);
 }
 
 template <typename T>
 void	Array<T>::setArrayElement(T element, unsigned int index) {
-	this->array[index] = element;
+	if (index < elementNumber)
+		this->array[index] = element;
 }
