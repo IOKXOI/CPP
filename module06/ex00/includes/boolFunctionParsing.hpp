@@ -1,6 +1,12 @@
 #pragma once
 #include <sstream>
 
+class Overflow : public std::exception {
+    const char	*what() const throw() {
+        return ("Overflow.");
+    }
+};
+
 bool	isNum(const char c);
 bool	isAlphaL(const char c);
 bool	isAlphaU(const char c);

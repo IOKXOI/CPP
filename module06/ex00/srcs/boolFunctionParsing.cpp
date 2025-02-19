@@ -54,7 +54,9 @@ bool	badCharPosition(char c, int offset, int lenght) {
 }
 
 bool	invalidCharSequence(std::string input) {
-	for (uint8_t i = 0; i < (input.length() - 1); i++) {
+	if (input.empty())
+		return true;
+	for (size_t i = 0; i < (input.length() - 1); i++) {
 		if (input[i] == '-' && !isNum(input[i + 1])) 
 			return true;
 		else if (input[i] == '.' && !isNum(input[i + 1]))

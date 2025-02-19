@@ -9,31 +9,8 @@
 
 
 
-char		ScalarConverter::c = 0;
-int			ScalarConverter::i = 0;
-float		ScalarConverter::f = 0;
-double		ScalarConverter::d = 0;
 
-ScalarConverter::ScalarConverter() {};
 
-ScalarConverter::ScalarConverter(const ScalarConverter &toCopy) {
-	c = toCopy.c;
-	i = toCopy.i;
-	f = toCopy.f;
-	d = toCopy.d;
-}
-
-ScalarConverter &ScalarConverter::operator=(const ScalarConverter &toCopy) {
-	if (this != &toCopy) {
-		c = toCopy.c;
-		i = toCopy.i;
-		f = toCopy.f;
-		d = toCopy.d;
-	}
-	return (*this);
-}
-
-ScalarConverter::~ScalarConverter() {};
 
 enum Type{
 	ERROR_INPUT = 0,
@@ -46,8 +23,7 @@ enum Type{
 	NAN_INPUT = 7
 };
 
-int	ScalarConverter::getInputType(char *argv) {
-	std::string const	input = argv;
+int	getInputType(std::string input) {
 	if (input == "+inf" || input == "+inff")
 		return P_INF_INPUT;
 	else if (input == "-inf" || input == "-inff")
@@ -69,75 +45,122 @@ int	ScalarConverter::getInputType(char *argv) {
 	return INT_TYPE;
 }
 
-void	ScalarConverter::convertFromChar(char* input) {
-	ScalarConverter::c = *input;
-	ScalarConverter::i = static_cast<int>(ScalarConverter::c);
-	ScalarConverter::f = static_cast<float>(ScalarConverter::c);
-	ScalarConverter::d = static_cast<double>(ScalarConverter::c);
+void	convertFromChar(std::string input) {
+	char c = input[0];
+	printChar(c);
+	std::cout << "Int: " << static_cast<int>(c) << std::endl;
+	std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(c) << "f" << std::endl;
+	std::cout << "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(c) << std::endl;
 }
 
-void	ScalarConverter::convertFromInt(char* input) {
-	if (INT_MIN <= atoi(input) && INT_MAX >= atoi(input)) {
-		ScalarConverter::i = atoi(input);
-		ScalarConverter::c = static_cast<char>(ScalarConverter::i);
-		ScalarConverter::f = static_cast<float>(ScalarConverter::i);
-		ScalarConverter::d = static_cast<double>(ScalarConverter::i);
+void	convertFromInt(std::string  input) {
+	const char *str = input.c_str();
+	errno = 0;
+
+	
+	long i = strtol(str, NULL, 10);
+
+	if (errno == ERANGE || i > INT_MAX || i < INT_MIN) {
+		throw (Overflow());
 	}
-	else 
-		throw (ScalarConverter::Overflow());
-}
-
-void	ScalarConverter::convertFromFloat(char* input) {
-	if (FLT_MIN <= atof(input) && FLT_MAX >= atof(input)) {
-		ScalarConverter::f = atof(input);
-		ScalarConverter::c = static_cast<char>(ScalarConverter::f);
-		ScalarConverter::i = static_cast<int>(ScalarConverter::f);
-		ScalarConverter::d = static_cast<double>(ScalarConverter::f);
+	else {
+		printChar(static_cast<char>(i));
+		std::cout <<  "Int: " << i << std::endl;
+		std::cout <<  "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(i) << "f" << std::endl;
+		std::cout <<  "Double: " << std::fixed << std::setprecision(1) << static_cast<double>(i) << std::endl;
 	}
-	else 
-		throw (ScalarConverter::Overflow());
 }
 
-void	ScalarConverter::convertFromDouble(char* input) {
-	ScalarConverter::d = strtod(input, NULL);
+void	convertFromFloat(std::string input) {
+	const char *str = input.c_str();
+	errno = 0;
+
+	long double f = strtod(str, NULL);
+	if (errno == ERANGE || f < -FLT_MAX || f > FLT_MAX) 
+		throw (Overflow());
+	else {
+		printChar(static_cast<char>(f));
+		if (f > INT_MAX || f < INT_MIN)
+			std::cout << "Int: Overflow" << std::endl;
+		else 
+			std::cout << "Int: " << static_cast<int>(f) << std::endl;
+		std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(f) << "f" << std::endl;
+		std::cout << "Double:" << std::fixed << std::setprecision(1) << static_cast<double>(f) << std::endl;
+	} 
+}
+
+void	convertFromDouble(std::string input) {
+	const char* str = input.c_str();
+
+	double d = strtod(str, NULL);
 	if (errno != ERANGE) {
-		ScalarConverter::c = static_cast<char>(ScalarConverter::d);
-		ScalarConverter::i = static_cast<int>(ScalarConverter::d);
-		ScalarConverter::f = static_cast<float>(ScalarConverter::d);
+		printChar(static_cast<char>(d));
+		if (d > INT_MAX || d < INT_MIN)
+			std::cout << "Int: Overflow" << std::endl;
+		else 
+			std::cout << "Int: " << static_cast<int>(d) << std::endl;
+		if (d > FLT_MAX	|| d < -FLT_MAX)
+			std::cout << "Float: Overflow" << std::endl;
+		else 
+			std::cout << "Float: " << std::fixed << std::setprecision(1) << static_cast<float>(d) << "f" << std::endl;
+		std::cout << "Double: " << std::fixed << std::setprecision(1) << d << std::endl;
 	}
 	else 
-		throw (ScalarConverter::Overflow());
+		throw (Overflow());
 }
 
-void	ScalarConverter::convertFromPInf() {
+void	convertFromPInf() {
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Float: " << static_cast <float> (std::numeric_limits<float>::infinity()) << "f" << std::endl;
 	std::cout << "Double : " << std::fixed << std::numeric_limits<double>::infinity() << std::endl;
 }
 
-void	ScalarConverter::convertFromNInf() {
+void	convertFromNInf() {
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Float: " << std::fixed << -std::numeric_limits<float>::infinity() << "f" << std::endl;
 	std::cout << "Double : " << std::fixed << -std::numeric_limits<double>::infinity() << std::endl;
 }
 
-void	ScalarConverter::convertFromNan() {
+void	convertFromNan() {
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Char: Impossible." << std::endl;
 	std::cout << "Float: " << std::fixed << std::numeric_limits<double>::quiet_NaN() << "f" << std::endl;
 	std::cout << "Double: " << std::fixed << std::numeric_limits<double>::quiet_NaN() << std::endl;
 }
 
-void	ScalarConverter::convert(char *input) {
-	switch (ScalarConverter::getInputType(input)) {
+
+
+
+
+
+
+
+// ScalarConverter::ScalarConverter() {};
+
+// ScalarConverter::ScalarConverter(const ScalarConverter &toCopy) {
+// 	(void)toCopy;
+// }
+
+// ScalarConverter &ScalarConverter::operator=(const ScalarConverter &toCopy) {
+// 	(void)toCopy;
+// 	return (*this);
+// }
+
+// ScalarConverter::~ScalarConverter() {};
+
+
+
+
+void	ScalarConverter::convert(std::string input) {
+	switch (getInputType(input)) {
 		case CHAR_TYPE:
-			ScalarConverter::convertFromChar(input);
+			convertFromChar(input);
 			break;
 		case INT_TYPE:
 			try {
-				ScalarConverter::convertFromInt(input);
+				convertFromInt(input);
 			}
 			catch (std::exception &e) {
 				std::cout << e.what() << std::endl;
@@ -146,7 +169,7 @@ void	ScalarConverter::convert(char *input) {
 			break;
 		case FLOAT_TYPE:
 			try {
-				ScalarConverter::convertFromFloat(input);
+				convertFromFloat(input);
 			}
 			catch (std::exception &e) {
 				std::cout << e.what() << std::endl;
@@ -155,7 +178,7 @@ void	ScalarConverter::convert(char *input) {
 			break;
 		case DOUBLE_TYPE:
 			try {
-				ScalarConverter::convertFromDouble(input);
+				convertFromDouble(input);
 			}
 			catch (std::exception &e) {
 				std::cout << e.what() << std::endl;
@@ -163,24 +186,18 @@ void	ScalarConverter::convert(char *input) {
 			}
 			break;
 		case P_INF_INPUT:
-			ScalarConverter::convertFromPInf();
+			convertFromPInf();
 			return;
 		case N_INF_INPUT:
-			ScalarConverter::convertFromNInf();
+			convertFromNInf();
 			return;
 		case NAN_INPUT:
-			ScalarConverter::convertFromNan();
+			convertFromNan();
 			return;
 		default:
 			std::cout << "Input error." << std::endl;
 			return ;
 	}
-	printChar(ScalarConverter::c);
-	std::cout << "int: " << ScalarConverter::i << std::endl;
-	std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast <float> (ScalarConverter::f) << "f" << std::endl;
-	std::cout << "double: " << std::fixed << std::setprecision(1) << static_cast <double> (ScalarConverter::d) << std::endl;
 }
 
-const char	*ScalarConverter::Overflow::what() const throw() {
-	return ("Overflow.");
-}
+
