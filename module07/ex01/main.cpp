@@ -19,5 +19,7 @@ for (size_t i = 0; i < length; i++) {
 	std::cout << array_int[i] << " ";
 }
 std::cout << std::endl;
+
+
 return 0; 
 }
