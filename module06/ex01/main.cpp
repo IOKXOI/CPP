@@ -31,7 +31,7 @@ int main(void) {
 	
 	uintptr_t testptr = Serialize::serialize(test);
 	test = Serialize::deserialize(testptr);
-
+	
 	std::cout << "DATA: No change" << std::endl;
 	std::cout << "Char:"	<< data->cmember << std::endl;
 	std::cout << "Int:"		<< data->imember << std::endl;
@@ -43,6 +43,9 @@ int main(void) {
 	std::cout << "Int:"		<< test->imember << std::endl;
 	std::cout << "Float:"	<< test->fmember << std::endl;
 	std::cout << "Double:"	<< test->dmember << RESET << std::endl;
+
+	delete test;
+	delete data;
 
 	return 0;
 }
