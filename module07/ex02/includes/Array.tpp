@@ -4,7 +4,7 @@
 
 template <typename T>
 Array<T>::Array() {
-	array = new T[0];
+	array = new T[0]();
 	elementNumber = 0;
 }
 
@@ -19,24 +19,17 @@ Array<T>::Array(const Array<T> &toCopy) {
 	elementNumber = toCopy.elementNumber;
 	array = new T[elementNumber]();
 
-	for (size_t i = 0; i < elementNumber; i++)
+	for (ssize_t i = 0; i < elementNumber; i++)
 		array[i] = toCopy.array[i];
 }
-
-// template <typename T>
-// Array<T>::Array(const Array<T> &toCopy): Array(toCopy.elementNumber) {
-// 	for (size_t i = 0; i < elementNumber; i++)
-// 		array[i] = toCopy.array[i];
-// }
-
 
 template <typename T>
 Array<T>	&Array<T>::operator=(const Array<T> &toCopy) {
 	if (this != &toCopy) {
-		delete[] array;
+		if (array) delete[] array;
 		elementNumber = toCopy.elementNumber;
 		array = new T[elementNumber] ();
-		for (size_t i = 0; i < elementNumber; i++)
+		for (ssize_t i = 0; i < elementNumber; i++)
 			array[i] = toCopy.array[i];
 	}
 	return (*this);
@@ -44,13 +37,13 @@ Array<T>	&Array<T>::operator=(const Array<T> &toCopy) {
 
 template <typename T>
 Array<T>::~Array() {
-	delete[] array;
+	if (array) delete[] array;
 }
 
 template <typename T>
 void	Array<T>::accessElement(unsigned int n) {
 	try {
-		if (n + 1 > size()) {
+		if (n > size() || n < 0) {
 			throw std::out_of_range("Index out of range");
 		}
 		std::cout << "Array from array class contain " << array[n] << " at index " << n << "." << std::endl;
@@ -63,7 +56,7 @@ void	Array<T>::accessElement(unsigned int n) {
 template <typename T>
 T	Array<T>::getElement(unsigned int n) {
 	try {
-		if (n + 1 > size()) {
+		if (n > size() || n < 0) {
 			throw std::out_of_range("Index out of range");
 		}
 	}
