@@ -31,7 +31,7 @@ int main(void) {
 	
 	uintptr_t testptr = Serialize::serialize(test);
 	test = Serialize::deserialize(testptr);
-	
+	int *test2 = Serialize::deserialize(testptr);
 	std::cout << "DATA: No change" << std::endl;
 	std::cout << "Char:"	<< data->cmember << std::endl;
 	std::cout << "Int:"		<< data->imember << std::endl;
