@@ -1,4 +1,8 @@
 #include "Span.hpp"
+#include <algorithm>
+#include <iostream>
+#include <limits>
+
 
 Span::Span() {}
 
@@ -31,31 +35,35 @@ void	Span::addNumber(int n) {
 }
 
 uint32_t	Span::longestSpan() {
-	int	min;
-	int	max;
-
 	if (_elements.size() < 2)
-		return(0);
-	for (std::vector<int>::iterator it = _elements.begin(); it != _elements.end(); it++) {
-		if (*it < min) {
-			min = *it;
-		}
-		else if (*it > max) {
-			max = *it;
-		}
+        throw customException("Container must have more than 1 element for this operation");
+
+    int minElem = *std::min_element(_elements.begin(), _elements.end());
+    int maxElem = *std::max_element(_elements.begin(), _elements.end());
+
+	int ret = maxElem - minElem;
+	if (ret > 0) {
+		ret -= 1;
 	}
-	return (max - min);
+    return ret;
 }
 
 uint32_t	Span::shortestSpan() {
-	int	min;
-	int	max;
-
-
 	if (_elements.size() < 2)
-		return(0);
-	min = _elements[0];
-	max = _elements[1];
-}
+        throw customException("Container must have more than 1 element for this operation");
 
+	std::sort(_elements.begin(), _elements.end());
+
+	int minSpan = std::numeric_limits<int>::max();
+
+	for (size_t i = 1; i < _elements.size(); i++) {
+        int diff = _elements[i] - _elements[i - 1];
+        if (diff < minSpan) {
+            minSpan = diff;
+        }
+    }
+	if (minSpan > 0)
+		minSpan -= 1;
+	return minSpan;
+}
 
