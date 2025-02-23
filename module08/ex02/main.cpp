@@ -1,31 +1,27 @@
-#include "Span.hpp"
 #include <iostream> 
+#include "MutantStack.hpp"
 
-int main( void ) {
-	Span	Test(5);
-
-	try {
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
-		std::cout << "Number Added" << std::endl;
-		Test.addNumber(1);
+	int main()
+	{
+		MutantStack<int> mstack;
+		mstack.push(5);
+		mstack.push(17);
+		std::cout << mstack.top() << std::endl;
+		mstack.pop();
+		std::cout << mstack.size() << std::endl;
+		mstack.push(3);
+		mstack.push(5);
+		mstack.push(737);
+		//[...]
+		mstack.push(0);
+		MutantStack<int>::iterator it = mstack.begin();
+		MutantStack<int>::iterator ite = mstack.end();
+		++it;
+		while (it != ite)
+		{
+		std::cout << *it << std::endl;
+		++it;
+		}
+		std::stack<int> s(mstack);
+		return 0;
 	}
-	catch (std::exception &e) {
-		std::cout << e.what() << std::endl;
-	}
-	std::cout << Test.shortestSpan() << std::endl;
-	std::cout << Test.longestSpan() << std::endl;
-	return 0; 
-}
-	
