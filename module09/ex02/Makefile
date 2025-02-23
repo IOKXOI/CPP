@@ -6,13 +6,12 @@
 #    By: sydauria <sydauria@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/07/23 05:58:48 by greengo           #+#    #+#              #
-#    Updated: 2024/05/15 19:36:36 by sydauria         ###   ########.fr        #
+#    Updated: 2024/06/10 20:40:49 by sydauria         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		=	main.cpp				\
-				srcs/Base.cpp			\
-				srcs/C.cpp				\
+SRCS		=	main.cpp		\
+				srcs/PMergeMe.cpp 
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -24,7 +23,9 @@ CFLAGS		=	-Wall -Wextra -Werror -I ./includes
 
 CPPFLAGS	=	-std=c++98
 
-NAME		=	ex03
+CFLAGS_ASAN =	-fsanitize=address -fsanitize=undefined -fno-omit-frame-pointer -fstack-protector-strong -fno-optimize-sibling-calls
+
+NAME		=	PMergeMe
 
 all:		$(NAME)
 
@@ -33,7 +34,7 @@ all:		$(NAME)
 
 
 $(NAME):	$(OBJS)
-	$(CC) $(CFLAGS) $(CPPFLAGS) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(CPPFLAGS)  $(OBJS) -o $(NAME)
 
 clean:
 	$(RM) $(OBJS)

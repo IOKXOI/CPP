@@ -1,7 +1,9 @@
 #include "Bureaucrat.hpp"
 
 int main(){
-	Bureaucrat Mami("coucou", 1);
+	
+	Bureaucrat Mami("Mami", 1);
+
 	try {
 		Bureaucrat Papi("coucou", 150);
 //		Bureaucrat Papi("coucou", -1);

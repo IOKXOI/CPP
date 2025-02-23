@@ -4,9 +4,9 @@
 
 int main( void ) {
     // unsigned int n = 10;
-    std::getline(std::cin, userInput);
-	if (std::cin.eof() || std::cin.fail())
-		return 0;
+    // std::getline(std::cin, userInput);
+	// if (std::cin.eof() || std::cin.fail())
+	// 	return 0;
 
     std::vector<int> Strasbourg;
     Strasbourg.push_back(1);
@@ -15,10 +15,11 @@ int main( void ) {
     Strasbourg.push_back(4);
     Strasbourg.push_back(5);
 
-
-    std::cout << easyfind(Strasbourg, 6) << std::endl;
-    
-
-
+    try {
+        std::cout << easyfind(Strasbourg, 6) << std::endl;
+    }
+    catch (std::exception &e) {
+        std::cout << e.what() << std::endl;
+    }
     return 0; 
 }
