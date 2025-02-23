@@ -1,6 +1,7 @@
 #pragma once
 #include <cstddef>
 #include <exception>
+#include <sys/types.h>
 
 template <typename T>
 class Array {
@@ -26,7 +27,7 @@ class Array {
 
 	private:
 		T*				array;
-		unsigned int	elementNumber;
+		int				elementNumber;
 };
 
 
