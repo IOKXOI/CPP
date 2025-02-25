@@ -55,6 +55,9 @@ void	Calculator::division() {
 		_stack.pop();
 		b = _stack.top();
 		_stack.pop();
+		if (a == 0 || b == 0) {
+			throw std::runtime_error("Impossible division 0.");
+		}
 		_stack.push(b / a);
 	}
 }
@@ -92,45 +95,50 @@ bool	Calculator::isOperatorChar(const char c) {
 
 
 void	Calculator::calcul(const char** argv) {
-	int			number;
+	long		number;
 	const char*	start_ptr = argv[1];
 	char*		end_ptr;
 
-	for (;;) {
-		errno = 0;
-		number = strtol(start_ptr, &end_ptr, 10);
-		//printf("strat = \"%s\"\n  end = \"%s\"\nnumber = %d\n", start_ptr, end_ptr, number);
-		if (errno) {
-			std::cerr << "Error: " << strerror(errno) << std::cout;
-			return;
-		}
-		else if (isOperatorChar(*start_ptr)) {
-			if (_stack.empty()) {
-				std::cerr << "Error: operator before operands." << std::cout;
+	try {
+		for (;;) {
+			errno = 0;
+			number = strtol(start_ptr, &end_ptr, 10);
+			//printf("strat = \"%s\"\n  end = \"%s\"\nnumber = %d\n", start_ptr, end_ptr, number);
+			if (errno) {
+				std::cerr << "Error: " << strerror(errno) << std::endl;;
 				return;
 			}
-			else {
-				operate(*start_ptr);
-				end_ptr++;
+			else if (isOperatorChar(*start_ptr)) {
+				if (_stack.empty()) {
+					std::cerr << "Error: operator before operands." << std::endl;;
+					return;
+				}
+				else {
+					operate(*start_ptr);
+					end_ptr++;
+				}
 			}
-		}
-		else if (std::isdigit(*start_ptr))
-			_stack.push(number);
-		if (end_ptr == start_ptr) {
-			if (*end_ptr == '\0') {
-				break;
+			else if (std::isdigit(*start_ptr))
+				_stack.push(number);
+			if (end_ptr == start_ptr) {
+				if (*end_ptr == '\0') {
+					break;
+				}
+				else {
+					std::cout << "Error: input containt invalid character" << std::endl;
+					return;
+				}
 			}
-			else {
-				std::cout << "Error: input containt invalid character" << std::endl;
-				return;
+			start_ptr = end_ptr;
+			while (isspace(*start_ptr)) {
+				start_ptr++;
 			}
+			//std::cout << "RESULT IS = " << _stack.top() << std::endl;
 		}
-		start_ptr = end_ptr;
-		while (isspace(*start_ptr)) {
-			start_ptr++;
-		}
-		//std::cout << "RESULT IS = " << _stack.top() << std::endl;
+		std::cout << _stack.top() << std::endl;
+		_stack.pop();
 	}
-	std::cout << _stack.top() << std::endl;
-	_stack.pop();
+	catch(std::exception &e) {
+		std::cout << e.what() << std::endl;
+	}
 }
