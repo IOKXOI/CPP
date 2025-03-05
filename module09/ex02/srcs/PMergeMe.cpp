@@ -3,12 +3,13 @@
 #include <cstring>
 #include <cerrno>
 #include "PMergeMe.hpp"
+#include <iterator>
 
 /*Print the arguments*/
 void	FordJohnson::print_before(const char **argv) {
 	int i = 1;
 
-	std::cout << "Before: ";
+	std::cout << "Before sort: ";
 	while (argv[i]) {
 		std::cout << argv[i] << " ";
 		i++;
@@ -16,22 +17,32 @@ void	FordJohnson::print_before(const char **argv) {
 	std::cout << std::endl;
 }
 
+template <typename Container>
+void	FordJohnson::print_vector_pair(Container container){
+	std::cout << "Pair state : " << std::endl;
+	for (typename Container::iterator it = container.begin(); it != container.end(); it++) {
+		std::cout << it->second << std::endl;
+	}
+}
+
 /*Print the vector container content*/
 void	FordJohnson::print_after_vector(std::vector<int> &container) {
-	std::cout << "After: ";
+	std::cout << "VECTOR : ";
 	for (std::vector <int>::iterator it = container.begin(); it != container.end(); it++) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+	print_vector_time();
 }
 
 /*Print the deque container content*/
 void	FordJohnson::print_after_deque(std::deque<int> &container) {
-	std::cout << "After: ";
+	std::cout << "DEQUE  : ";
 	for (std::deque <int>::iterator it = container.begin(); it != container.end(); it++) {
 		std::cout << *it << " ";
 	}
 	std::cout << std::endl;
+	print_deque_time();
 }
 
 /*Create the final vector container to insert the sorted sequences*/
@@ -40,9 +51,7 @@ std::vector<int>	FordJohnson::create_final_vector() {
 
 	final_vector.reserve(_arg_number);
 	for (std::vector<std::pair<int, int> >::iterator it = _vector.begin(); it != _vector.end(); it++) {
-		if (it->first != -1) {
 			final_vector.push_back(it->second);
-		}
 	}
 	return final_vector;
 }
@@ -52,9 +61,7 @@ std::deque<int>	FordJohnson::create_final_deque() {
 	std::deque<int>	final_deque;
 
 	for (std::deque<std::pair<int, int> >::iterator it = _deque.begin(); it != _deque.end(); it++) {
-		if (it->first != -1) {
 			final_deque.push_back(it->second);
-		}
 	}
 	return final_deque;
 }
@@ -103,9 +110,8 @@ void	FordJohnson::insertion_sort_deque(std::deque<int> &final_container,std::deq
 	for (std::deque<std::pair<int, int> >::iterator it = ex_container.begin(); it != ex_container.end(); it++) {
 		if (it->first != -1) {
 			index_binary = binary_search(final_container, it->first, 0, final_container.size() - 1);
-			//std::cout << "index to place = " << index_binary << std::endl << "size = " << final_container.size() <<std::endl << "value = " << it->first << std::endl <<std::endl;
+			// std::cout << "index to place = " << index_binary << std::endl << "size = " << final_container.size() <<std::endl << "value = " << it->first << std::endl <<std::endl;
 			final_container.insert(final_container.begin() + index_binary, it->first);
-			//print_after(final_container);
 		}
 	}
 }
@@ -147,21 +153,32 @@ void	FordJohnson::sort(T &container, int start_index, int mid, int end_index) {
 		superior_index++;
 		merge_index++;
 	}
-	//print_vector_pair(container);
 }
+// pile
+// 		4 (1) en attente
+// 			0 (5)
+// 	2 (7) en attente
+// 		0 1 (5 10)
+// 3 4 (12 1) en attente
+// 	0 2 (5 10 7)
+// 0 4 (5 10 7 12 1)
+
+// 5 10 7 1 12
+// 5 7 10 - 1 12
+// 1 5 7
 
 /*Call recursively merge_sort to sort highter number of pairs(pairs.second)*/
 template <typename T>
 void	FordJohnson::merge_sort(T &container, int start_index, int end_index) {
 	int	mid;
-
 	mid = (start_index + end_index) / 2;
 	if (start_index < end_index) {
 		merge_sort(container, start_index, mid);
 		merge_sort(container, mid + 1, end_index);
-	sort(container, start_index, mid, end_index);
 	}
+	sort(container, start_index, mid, end_index);
 }
+
 
 /*Using strtol to convert args to int*/
 long	FordJohnson::convert_arg_to_int(const char *arg) {
@@ -263,12 +280,11 @@ bool	FordJohnson::vector(int argc, const char **argv) {
 	if (!fill_container_vector(_vector, argv))
 		return (0);
 	merge_sort(_vector, 0, _vector.size() - 1);
-	// print_vector_pair(_vector);
 	std::vector<int> final_vector = create_final_vector();
 	insertion_sort_vector(final_vector, _vector);
 	std::clock_t stop_time_vector = std::clock();
 	_time_vector = ((double)stop_time_vector / CLOCKS_PER_SEC * 1000) - ((double)start_time_vector / CLOCKS_PER_SEC * 1000);
-	//print_after_vector(final_vector);
+	print_after_vector(final_vector);
 	return (1);
 }
 
@@ -278,13 +294,14 @@ bool	FordJohnson::deque(int argc, const char **argv) {
 	_arg_number = argc - 1;
 
 	if (!fill_container_deque(_deque, argv))
-		return (0);
+	return (0);
 	merge_sort(_deque, 0, _deque.size() - 1);
 	//print_deque_pair(_deque);
 	std::deque<int> final_deque = create_final_deque();
 	insertion_sort_deque(final_deque, _deque);
 	std::clock_t stop_time_deque = std::clock();
 	_time_deque = ((double)stop_time_deque * 1000 / CLOCKS_PER_SEC ) - ((double)start_time_deque * 1000/ CLOCKS_PER_SEC );
+	//print_vector_pair(_vector);
 	print_after_deque(final_deque);
 	return (1);
 }

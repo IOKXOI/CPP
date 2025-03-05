@@ -15,7 +15,7 @@ int	main(int argc, const char **argv) {
 	if (!Johnny.deque(argc, argv)) {
 		return 0;
 	}
-	Johnny.print_vector_time();
-	Johnny.print_deque_time();
+	// Johnny.print_vector_time();
+	// Johnny.print_deque_time();
 	return (1);
 }

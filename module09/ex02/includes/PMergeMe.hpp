@@ -17,6 +17,8 @@ class FordJohnson {
 		double								_time_deque;
 
 	public:
+	template <typename Container> void	print_vector_pair(Container container);
+
 								void					print_before(const char **argv);
 								void					print_vector_time();
 								void					print_deque_time();
