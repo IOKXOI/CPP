@@ -106,45 +106,44 @@ void	Exchange::convert(const char* input) {
 	}
 	while (getline(input_file, total_line)) {
 		pos = total_line.find('|');
-		switch (pos != std::string::npos) {
-			case 0:
-				std::cout << total_line << " is an invalid format." << std::endl;
-				break;
-			case 1:
-				input_date = total_line.substr(0, pos);
-				input_value = total_line.substr(pos + 1);
-				if (!strptime(input_date.c_str(), "%Y-%m-%d", &tm)) {
-					std::cout << input_date <<" is an invalid time format." << std::endl;
+		if (pos == std::string::npos) {
+			std::cout << total_line << " is an invalid format." << std::endl;
+		}
+		else {
+			input_date = total_line.substr(0, pos);
+			input_value = total_line.substr(pos + 1);
+			char *timeFormat = strptime(input_date.c_str(), "%Y-%m-%d", &tm);
+			input_value.erase(std::remove(input_value.begin(), input_value.end(), ' '), input_value.end());
+			if (!timeFormat) {
+				std::cout << input_date <<" is an invalid time format." << std::endl;
+			}
+			else if (!containsOnlyDigits(input_value)) {
+				std::cout << input_date << ": " << input_value << " is invalid price format." << std::endl;
+			}
+			else {
+				value = atof(input_value.c_str());
+				if (!value && !containsOnlyZeros(input_value)) {
+					throw std::runtime_error("Atof encountered an error.");
 				}
-				input_value.erase(std::remove(input_value.begin(), input_value.end(), ' '), input_value.end());
-				switch (containsOnlyDigits(input_value)){
-					case 0:
-						std::cout << input_date << ": Invalid price format." << std::endl;
-						break;
-					case 1:
-						value = atof(input_value.c_str());
-						if (!value && !containsOnlyZeros(input_value)){
-							throw std::runtime_error("Atof encountered an error.");
-						}
-						else if (value < 0 || value > 1000) {
-							std::cout << "Value to estimate is out of range." << std::endl;
+				else if (value < 0 || value > 1000) {
+					std::cout << "Value to estimate is out of range." << std::endl;
+				}
+				else {
+					if (_db.find(input_date) != _db.end()) {
+						std::cout << it->first << " => " << value << " = " <<  value * it->second << std::endl;
+					}
+					else {
+						it = _db.lower_bound(input_date);
+						if (it == _db.begin()) {
+							std::cout << "The date is too older for referencing." << std::endl;
 						}
 						else {
-							if (_db.find(input_date) != _db.end()) {
-								std::cout << it->first << " => " << value << " = " <<  value * it->second << std::endl;
-							}
-							else {
-								it = _db.lower_bound(input_date);
-								if (it == _db.begin()) {
-									std::cout << "The date is too older for referencing." << std::endl;
-								}
-								else {
-									--it;
-									std::cout << it->first << " => " << value << " = " <<  value * it->second << std::endl;
-								}
-							}
+							--it;
+							std::cout << it->first << " => " << value << " = " <<  value * it->second << std::endl;
 						}
+					}
 				}
+			}
 		}
 	}
 }
